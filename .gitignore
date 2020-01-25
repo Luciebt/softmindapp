@@ -40,3 +40,10 @@ yarn-debug.log*
 *.swp
 .DS_Store
 .env
+
+# config
+/tmp/*
+/tmp/pids/*
+!/tmp/.keep
+!/tmp/pids
+!/tmp/pids/.keep
