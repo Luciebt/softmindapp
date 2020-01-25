@@ -16,12 +16,11 @@ rokas_friend = Friend.create!(
     name: "rokas",
     email: "rokas@gmail.com",
     phone_number: "0333339444",
-    token: "TOKEN494949494958TOKEN"
-    user_id: lucie_user.id,
-
+    token: "TOKEN494949494958TOKEN",
+    user_id: lucie_user.id
 )
 
-Moment.create!(
+moment1 = Moment.create!(
     text_content: "Yo bitch!",
     seen: false,
     media: "https://res.cloudinary.com/dj1gs8bsd/image/upload/v1579355852/z8yzpokt5mpgur8zzn1m.jpg",
