@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_01_25_133507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_friends_on_user_id"
+  end 
+    
+  create_table "moments", force: :cascade do |t|
+    t.string "text_content"
+    t.boolean "seen"
+    t.string "media"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_moments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,9 +44,13 @@ ActiveRecord::Schema.define(version: 2020_01_25_133507) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "friends", "users"
+  add_foreign_key "moments", "users"
 end
