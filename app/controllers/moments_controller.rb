@@ -29,6 +29,9 @@ class MomentsController < ApplicationController
     end
 
     def show
+        @moments = (Moment.all).seen
+        # PUT Moments UNSEEN by default
+        # once showed there, put moments on seen
         # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS), à faire tourner avec JS.
         # unseen
         # timer for the day - create a job that runs at midnight, reseting the user.time_left_today - script executed by heroku at time
