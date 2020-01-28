@@ -1,36 +1,47 @@
 class MomentsController < ApplicationController
-    def index
-        hash = {}
-        # get all moments, ordered by date
-        # iterate through moments
-        # for each moment: first check year
-        # if year exists in hash, move into year, else create year
-        # if month exists in hash[year], move into month, else create month
-        # append moment to month
-        {
-            2020 => {
-                January: [@moment, @moment],
-                Feb: [],
-                March: [],
-                April: [],
-            },
-            2019
-        }
-    end
+    # def index
+    #     hash = {}
+    #     # get all moments, ordered by date
+    #     # iterate through moments
+    #     # for each moment: first check year
+    #     # if year exists in hash, move into year, else create year
+    #     # if month exists in hash[year], move into month, else create month
+    #     # append moment to month
+    #     {
+    #         2020 => {
+    #             January: [@moment, @moment],
+    #             February: [],
+    #             March: [],
+    #             April: [],
+    #         },
+    #         2019
+    #     }
+    # end
 
     # /moments?year=2020,month=1
-    def selected_moments
-        year = params[:year]
-        month = params[:month]
-        start_date
-        end_date
-        # search through moments for created_at between start date and end date
-        moments = Moment.
-    end
+    # def selected_moments
+    #     year = params[:year]
+    #     month = params[:month]
+    #     start_date
+    #     end_date
+    #     # search through moments for created_at between start date and end date
+    #     moments = Moment.
+    # end
 
     def show
-        @moments = (Moment.all).seen
-        # PUT Moments UNSEEN by default
+        @moments = Moment.all
+        # @unseen_moments = @moments.select { |moment| !moment.seen }
+
+        # if @unseen_moments.empty?
+        #     # Redirect to timeline or special page
+        # else
+        #     @moments = @unseen_moments.first(5)
+        #     # todo: loop through moments in the View
+        # end
+        # @moments
+
+        # todo: javascript, changed to seen status
+
         # once showed there, put moments on seen
         # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS), à faire tourner avec JS.
         # unseen
@@ -40,10 +51,6 @@ class MomentsController < ApplicationController
     end
 
     def carrousel
-
         @moments = Moment.where(user: current_user).order_by(created_at)
     end
-
-
-
 end
