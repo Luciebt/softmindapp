@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_25_133507) do
+ActiveRecord::Schema.define(version: 2020_01_28_201151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_01_25_133507) do
 
   create_table "moments", force: :cascade do |t|
     t.string "text_content"
-    t.boolean "seen"
+    t.boolean "seen", default: false
     t.string "media"
     t.bigint "user_id"
     t.datetime "created_at", null: false
