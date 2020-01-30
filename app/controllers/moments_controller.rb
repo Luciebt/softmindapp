@@ -28,28 +28,49 @@ class MomentsController < ApplicationController
     #     moments = Moment.
     # end
 
-    def show
-        @moments = Moment.all
-        @unseen_moments = @moments.select { |moment| !moment.seen }
+  def index
+    @moments = Moment.where(seen: true).order(created_at: :desc)
+  end
 
-        if @unseen_moments.empty?
-            # Redirect to timeline or special page
-        else
-            @moments = @unseen_moments.first(5)
-        end
-        @moments
+  def new
+    @moment = Moment.new
+    # todo: Drag and drop logic
+    @moment.user = current_user
+  end
 
-        # todo: javascript, to change moment to seen status
-        # todo: add time_left_today to user (migration)
-
-        # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS), à faire tourner avec JS.
-        # unseen
-        # timer for the day - create a job that runs at midnight, reseting the user.time_left_today - script executed by heroku at time
-        # timer for the show 5mn - time left today - JS (event listener if he closes windows), Ajax request, update user model (time left)
-        # timer running out - JS - update user model (time left)
+  def create
+    @moment = Moment.new(moments_params)
+    @moment.user_id = current_user.id
+    if @moment.save
+      # redirect to? Custom page after drag and drop
+    else
+      # reload the page? Error message?
     end
+  end
 
-    def carrousel
-        @moments = Moment.where(user: current_user).order_by(created_at)
+  def show
+    @moments = Moment.all
+    @unseen_moments = @moments.select { |moment| !moment.seen }
+
+    if @unseen_moments.empty?
+      # Redirect to timeline or special page
+    else
+      @moments = @unseen_moments.first(5)
     end
+    @moments
+
+    # todo: javascript, to change moment to seen status
+    # todo: add time_left_today to user (migration)
+
+    # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS), à faie tourner avec JS.
+    # unseen
+    # timer for the day - create a job that runs at midnight, reseting the user.time_left_today - script executed by heroku at time
+    # timer for the show 5mn - time left today - JS (event listener if he closes windows), Ajax request, update user model (time left)
+    # timer running out - JS - update user model (time left)
+  end
+
+  def carrousel
+    @moments = Moment.where(user: current_user).order_by(created_at)
+    # when moment comes up here, update moment seen: true
+  end
 end
