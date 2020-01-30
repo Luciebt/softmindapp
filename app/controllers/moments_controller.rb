@@ -27,7 +27,7 @@ class MomentsController < ApplicationController
     #     # search through moments for created_at between start date and end date
     #     moments = Moment.
     # end
-  
+
   def index
     @moments = Moment.where(seen: true).order(created_at: :desc)
   end
@@ -43,16 +43,18 @@ class MomentsController < ApplicationController
     @moment.user_id = current_user.id
     if @moment.save
       # redirect to? Custom page after drag and drop
+      redirect_to "http://localhost:3000"
     else
       # reload the page? Error message?
+      render :new
 
   def show
     @moments = Moment.where(user: current_user)
     @unseen_moments = @moments.select { |moment| !moment.seen }
 
-  if @unseen_moments.empty?
+    if @unseen_moments.empty?
         # Redirect to timeline or special page: You've played all your moments of the day!'
-  else
+    else
       @moments = @unseen_moments.first(5)
         # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS), à faire tourner avec JS.
         # todo: JS change moment to seen status
@@ -86,10 +88,9 @@ end
     # tag method here. Need to update schema to add a tag field to moments.
   end
 
-
   def destroy
     moment = Moment.find(params[:id])
-    instrument.destroy
+    moment.destroy
     # redirect_to timeline page?
   end
 
