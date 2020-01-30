@@ -30,19 +30,18 @@ class MomentsController < ApplicationController
 
     def show
         @moments = Moment.all
-        # @unseen_moments = @moments.select { |moment| !moment.seen }
+        @unseen_moments = @moments.select { |moment| !moment.seen }
 
-        # if @unseen_moments.empty?
-        #     # Redirect to timeline or special page
-        # else
-        #     @moments = @unseen_moments.first(5)
-        #     # todo: loop through moments in the View
-        # end
-        # @moments
+        if @unseen_moments.empty?
+            # Redirect to timeline or special page
+        else
+            @moments = @unseen_moments.first(5)
+        end
+        @moments
 
-        # todo: javascript, changed to seen status
+        # todo: javascript, to change moment to seen status
+        # todo: add time_left_today to user (migration)
 
-        # once showed there, put moments on seen
         # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS), à faire tourner avec JS.
         # unseen
         # timer for the day - create a job that runs at midnight, reseting the user.time_left_today - script executed by heroku at time
