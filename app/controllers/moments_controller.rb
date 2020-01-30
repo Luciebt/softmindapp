@@ -29,27 +29,60 @@ class MomentsController < ApplicationController
     # end
 
     def show
-        @moments = Moment.all
+        @moments = Moment.where(user: current_user)
         @unseen_moments = @moments.select { |moment| !moment.seen }
 
         if @unseen_moments.empty?
-            # Redirect to timeline or special page
+            # Redirect to timeline or special page: You've played all your moments of the day!'
         else
             @moments = @unseen_moments.first(5)
+            # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS), à faire tourner avec JS.
+            # todo: JS change moment to seen status
+            # todo: JS Timer logic
+            # timer for the day - create a job that runs at midnight, reseting the user.time_left_today - script executed by heroku at time
+            # timer for the show 5mn - time left today - JS (event listener if he closes windows), Ajax request, update user model (time left)
+            # timer running out - JS - update user model (time left)
         end
         @moments
-
-        # todo: javascript, to change moment to seen status
-        # todo: add time_left_today to user (migration)
-
-        # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS), à faire tourner avec JS.
-        # unseen
-        # timer for the day - create a job that runs at midnight, reseting the user.time_left_today - script executed by heroku at time
-        # timer for the show 5mn - time left today - JS (event listener if he closes windows), Ajax request, update user model (time left)
-        # timer running out - JS - update user model (time left)
     end
 
     def carrousel
         @moments = Moment.where(user: current_user).order_by(created_at)
     end
+
+    def new
+        @moment = Moment.new
+        # todo: Drag and drop logic
+        @moment.user = current_user
+    end
+
+    def create
+        @moment = Moment.new(moments_params)
+        @moment.user_id = current_user.id
+        @moment.friend_id = friend.id
+
+        if @moment.save
+            # redirect to? Custom page after drag and drop
+        else
+            # reload the page? Error message?
+        end
+    end
+
+    def tagging
+        # tag method here. Need to update schema to add a tag field to moments.
+    end
+
+
+    def destroy
+        moment = Moment.find(params[:id])
+        instrument.destroy
+        # redirect_to timeline page?
+    end
+
+    private
+
+    def moments_params
+        params.require(:moment).permit(:text_content, :media, :user_id, :friend_id, :seen)
+    end
+
 end
