@@ -22,7 +22,18 @@ rokas_friend = Friend.create!(
 
 moment1 = Moment.create!(
     text_content: "Yo bitch!",
-    seen: false,
+    media: "https://res.cloudinary.com/dj1gs8bsd/image/upload/v1579355852/z8yzpokt5mpgur8zzn1m.jpg",
+    user_id: lucie_user.id
+)
+
+moment2 = Moment.create!(
+    text_content: "That's awesome",
+    media: "https://res.cloudinary.com/dj1gs8bsd/image/upload/v1579356374/euhlbarbfn38aiqqtnto.jpg",
+    user_id: lucie_user.id
+)
+
+moment3 = Moment.create!(
+    text_content: "Remember that trumpet?",
     media: "https://res.cloudinary.com/dj1gs8bsd/image/upload/v1579355852/z8yzpokt5mpgur8zzn1m.jpg",
     user_id: lucie_user.id
 )
