@@ -1,0 +1,9 @@
+<div class="upload-moment">
+    <%= simple_form_for @moment do |f| %>
+    <div class="add-photos">
+     <h6><strong>Add photos to your listing</strong></h6>
+    <%= f.input :photo, label: "Photos help guests imagine renting your instrument. You can start with one and add more after you publish" %>
+    <%= f.input :photo_cache, as: :hidden %>
+    </div>
+ <%= f.submit 'Publish', class: "cute-button" %>
+</div>
