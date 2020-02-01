@@ -1,39 +1,9 @@
-<h2>January 2020</h2>
+<h1>timelIne</h1>
 
-
-<% @moments.each do |moment| %>
-    <%= moment.keys %>
-    <%= moment.values %>
+<% @moments.each do |year_and_month, moments| %>
+  <div><%= year_and_month %></div>
+  <% moments.each do |moment| %>
+    <p><%= moment.text_content %></p>
+    <p><%= moment.media %></p>
+  <% end %>
 <% end %>
-
-
-<%
-=begin%>
- @moment_hash.each do |year_and_month, moments|
-  # Jan 2015
-  <div>year_end_month</div>
-  moments.each do |moment|
-    # had fun at le wagon
-    <p>moment.name</p>
-  end
-end
-<%
-=end%>
-
-
-<h2>February 2020</h2>
-
-
-
-
-<%
-=begin%>
- <% @timeline_moments.each do |timeline_moment| %>
-    <%= timeline_moment.created_at %>
-    <%= timeline_moment.user %>
-    <%= timeline_moment.media %>
-    <%= timeline_moment.friend_id %>
-    <%= timeline_moment.text_content %>
-<% end %>
-<%
-=end%>
