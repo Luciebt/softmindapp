@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_201151) do
+ActiveRecord::Schema.define(version: 2020_02_01_114801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2020_01_28_201151) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "friend_id"
+    t.index ["friend_id"], name: "index_moments_on_friend_id"
     t.index ["user_id"], name: "index_moments_on_user_id"
   end
 
@@ -52,5 +54,6 @@ ActiveRecord::Schema.define(version: 2020_01_28_201151) do
   end
 
   add_foreign_key "friends", "users"
+  add_foreign_key "moments", "friends"
   add_foreign_key "moments", "users"
 end
