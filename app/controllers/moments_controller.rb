@@ -30,6 +30,7 @@ class MomentsController < ApplicationController
 
   def index
     @moments = Moment.where(seen: true).order(created_at: :desc)
+    @moments.group("year(created_at)").group("month(created_at)").count
   end
 
   def new
