@@ -18,16 +18,23 @@
 
                     <% if moment.media.present? %>
 
-                        <p>
-                        <%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
+                        <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
+                            <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
+
+                            <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
+
+                                <p><%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_path(moment) %></p>
+
+                            <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
+
+                                <p>Audio file</p>
+
+                            <% end %>
 
                     <% end %>
 
 
 
-    <p><%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_path(moment) %></p>
-    <%
-%>
 
 
                     <p><%= moment.text_content %></p>
