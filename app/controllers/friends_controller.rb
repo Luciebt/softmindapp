@@ -5,22 +5,18 @@ class FriendsController < ApplicationController
 
   def show
     @friend = Friend.find(params[:id])
-    authorize @friend
   end
 
   def new
     @friend = Friend.new
-    authorize @friend
   end
 
   def edit
     @friend = Friend.find(params[:id])
-    authorize @friend
   end
 
   def update
     @friend = Friend.find(params[:id])
-    authorize @friend
     if @friend.update(friend_params)
       redirect_to friend_path(@friend)
     else
