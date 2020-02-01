@@ -1,0 +1,12 @@
+<%= simple_form_for (@friend) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+
+  <%= f.input :email, input_html: { autocomplete: 'email' } %>
+
+  <%#= f.input :avatar, as: :file, input_html: { accept: User::AVATAR } %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+<% end %>
