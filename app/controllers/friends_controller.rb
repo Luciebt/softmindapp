@@ -26,12 +26,12 @@ class FriendsController < ApplicationController
 
   def create
     @friend = Friend.new(friend_params)
+    FriendMailer.creation_confirmation(@friend).deliver_now
     @friend.user_id = current_user.id
-    # friend.token =
-    # authorize @friend
 
     if @friend.save
       redirect_to friend_path(@friend)
+
     else
       render :new
     end
