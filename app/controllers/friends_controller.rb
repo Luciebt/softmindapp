@@ -24,12 +24,24 @@ class FriendsController < ApplicationController
     end
   end
 
+  # "/friends/100/qwertz1234"
+  def friend_upload
+    @friend = Friend.find(params[:id])
+    if @friend.token == params[:token]
+      # show the page
+    else
+      # redirect
+    end
+  end
+
   def create
     @friend = Friend.new(friend_params)
     @friend.user_id = current_user.id
+    # friend.token =
     authorize @friend
 
     if @friend.save
+      raise
       redirect_to friend_path(@friend)
     else
       render :new
@@ -49,4 +61,4 @@ class FriendsController < ApplicationController
     params.require(:friend).permit(:email, :phone_number, :name, :token)
   end
 end
-end
+
