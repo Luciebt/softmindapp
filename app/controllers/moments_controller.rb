@@ -29,9 +29,39 @@ class MomentsController < ApplicationController
   # end
 
   def index
-    @moments = Moment.where(seen: true).order(created_at: :desc)
-    @moments.group("year(created_at)").group("month(created_at)")
+    @moments = Moment.where(seen: false).order(created_at: :desc)
+
+    moment_hash
+
+    mmoment.date.year
+    # @moments = @moments.group("year(created_at)").group("month(created_at)")
+
+    @timeline_moments = {}
+
+    @timeline_moments = {
+      2020 => {
+        January: grouping_moments("January", 2020),
+        February: grouping_moments("February", 2020),
+        March: grouping_moments(@moments, "March", 2020),
+        April: grouping_moments(@moments, "April", 2020),
+        May: grouping_moments(@moments, "May", 2020),
+        June: grouping_moments(@moments, "June", 2020),
+        July: grouping_moments(@moments, "July", 2020),
+        August: grouping_moments(@moments, "August", 2020),
+        September: grouping_moments(@moments, "September", 2020),
+        October: grouping_moments(@moments, "October", 2020),
+        November: grouping_moments(@moments, "November", 2020),
+        December: grouping_moments(@moments, "December", 2020)
+      }
+    }
+
   end
+
+  def grouping_moments(month, year)
+    moments = Moment.group("#{year}(created_at)").group("#{month}(created_at)")
+    moments
+  end
+
 
   def new
     @moment = Moment.new

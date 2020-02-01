@@ -1,3 +1,24 @@
+<h2>January 2020</h2>
+
+<%= p @moments %>
+
 <% @moments.each do |moment| %>
-<h1><%= moment.seen %></h1>
+<%= moment.created_at %>
 <% end %>
+
+<h2>February 2020</h2>
+
+
+
+
+<%
+=begin%>
+ <% @timeline_moments.each do |timeline_moment| %>
+    <%= timeline_moment.created_at %>
+    <%= timeline_moment.user %>
+    <%= timeline_moment.media %>
+    <%= timeline_moment.friend_id %>
+    <%= timeline_moment.text_content %>
+<% end %>
+<%
+=end%>
