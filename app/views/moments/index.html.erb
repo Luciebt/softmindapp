@@ -1,3 +1,9 @@
-<% @moments.each do |moment| %>
-<h1><%= moment.seen %></h1>
+<h1>timelIne</h1>
+
+<% @moments.each do |year_and_month, moments| %>
+  <div><%= year_and_month %></div>
+  <% moments.each do |moment| %>
+    <p><%= moment.text_content %></p>
+    <p><%= moment.media %></p>
+  <% end %>
 <% end %>
