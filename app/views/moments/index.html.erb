@@ -1,10 +1,25 @@
 <h2>January 2020</h2>
 
-<%= p @moments %>
 
 <% @moments.each do |moment| %>
-<%= moment.created_at %>
+    <%= moment.keys %>
+    <%= moment.values %>
 <% end %>
+
+
+<%
+=begin%>
+ @moment_hash.each do |year_and_month, moments|
+  # Jan 2015
+  <div>year_end_month</div>
+  moments.each do |moment|
+    # had fun at le wagon
+    <p>moment.name</p>
+  end
+end
+<%
+=end%>
+
 
 <h2>February 2020</h2>
 
