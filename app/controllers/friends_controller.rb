@@ -28,7 +28,7 @@ class FriendsController < ApplicationController
     @friend = Friend.new(friend_params)
     @friend.user_id = current_user.id
     # friend.token =
-    authorize @friend
+    # authorize @friend
 
     if @friend.save
       redirect_to friend_path(@friend)
@@ -50,7 +50,4 @@ class FriendsController < ApplicationController
     params.require(:friend).permit(:email, :phone_number, :name, :token)
   end
 end
-<<<<<<< HEAD
 
-=======
->>>>>>> master

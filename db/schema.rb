@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_02_01_114801) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "authentication_token", limit: 30
+    t.index ["authentication_token"], name: "index_friends_on_authentication_token", unique: true
     t.index ["user_id"], name: "index_friends_on_user_id"
   end
 

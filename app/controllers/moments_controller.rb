@@ -35,7 +35,6 @@ class MomentsController < ApplicationController
 
   def new
     @moment = Moment.new
-<<<<<<< HEAD
     @friend = Friend.find(params[:friend_id])
     if @friend.token == params[:token]
       render :new
@@ -43,9 +42,7 @@ class MomentsController < ApplicationController
       redirect_to render_404
     end
     # todo: Drag and drop logic
-=======
     # to do: Drag and drop logic
->>>>>>> master
     @moment.user = current_user
   end
 
