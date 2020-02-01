@@ -50,4 +50,7 @@ class FriendsController < ApplicationController
     params.require(:friend).permit(:email, :phone_number, :name, :token)
   end
 end
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
