@@ -1,9 +1,47 @@
 <h1>timelIne</h1>
 
-<% @moments.each do |year_and_month, moments| %>
-  <div><%= year_and_month %></div>
-  <% moments.each do |moment| %>
-    <p><%= moment.text_content %></p>
-    <p><%= moment.media %></p>
-  <% end %>
-<% end %>
+<div class="timeline-container">
+
+    <div class="timeline-feed">
+
+        <% @moments.each do |year_and_month, moments| %>
+
+            <div class="timeline-dates">
+                <%= year_and_month %>
+            </div>
+
+            <div class="timeline-moment-list">
+
+                <% moments.each do |moment| %>
+
+                    <span><%= moment.id %></span>
+
+                    <% if moment.media.present? %>
+
+                        <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
+                            <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
+
+                            <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
+
+                                <p><%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_path(moment) %></p>
+
+                            <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
+
+                                <p>Audio file</p>
+
+                            <% end %>
+
+                    <% end %>
+
+
+
+
+
+                    <p><%= moment.text_content %></p>
+                    <p><%= moment.media %></p>
+                <% end %>
+            </div>
+        <% end %>
+
+    </div>
+</div>
