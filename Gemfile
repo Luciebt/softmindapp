@@ -17,8 +17,12 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+<<<<<<< HEAD
 gem 'simple_token_authentication' # adding tokens to friends
 
+=======
+gem 'groupdate'
+>>>>>>> master
 
 group :development do
   gem 'web-console', '>= 3.3.0'

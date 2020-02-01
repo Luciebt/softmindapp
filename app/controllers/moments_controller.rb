@@ -29,8 +29,9 @@ class MomentsController < ApplicationController
   # end
 
   def index
-    @moments = Moment.where(seen: true).order(created_at: :desc)
-    @moments.group("year(created_at)").group("month(created_at)").count
+    # @moment_index = Moment.group_by_month(:created_at, format: "%B %Y")
+    # @moments = Moment.group_by_month(&:created_at, format: "%B %Y") { |u| u.created_at }
+    @moments = Moment.where(seen: false).group_by_month(format: "%B %Y") { |m| m.created_at }
   end
 
   def new
