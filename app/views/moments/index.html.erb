@@ -1,46 +1,52 @@
-<h1>timelIne</h1>
+<div class="container">
 
-<div class="timeline-container">
+    <h1>Timeline</h1>
 
-    <div class="timeline-feed">
+    <div class="timeline-container">
 
-        <% @moments.each do |year_and_month, moments| %>
+        <div class="timeline-feed">
 
-            <div class="timeline-dates">
-                <%= year_and_month %>
-            </div>
+            <% @moments.each do |year_and_month, moments| %>
 
-            <div class="timeline-moment-list">
+                <div class="timeline-dates">
+                    <h2><%= year_and_month %></h2>
+                </div>
 
-                <% moments.each do |moment| %>
+                <div class="timeline-moment-list">
 
-                    <span><%= moment.id %></span>
+                    <% moments.each do |moment| %>
 
-                    <% if moment.media.present? %>
+                        <span><%= moment.id %></span>
 
-                        <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
-                            <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
+                        <% if moment.media.present? %>
 
-                            <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
+                            <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
+                                <div class="moment-card">
+                                    <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
+                                </div>
 
-                                <p><%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_path(moment) %></p>
+                                <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
-                            <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
+                                    <div class="moment-card">
+                                        <p><%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_path(moment) %></p>
+                                    </div>
 
-                                <p>Audio file</p>
+                                <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
 
-                            <% end %>
+                                    <div class="moment-card">
+                                        <p>Audio file TODO: How to display AUDIO?</p>
+                                    </div>
 
+                                <% end %>
+                        <% end %>
+
+                        <p><%= moment.text_content %></p>
+                        <p><%= moment.media %></p>
                     <% end %>
+                </div>
+            <% end %>
 
-
-
-
-                    <p><%= moment.text_content %></p>
-                    <p><%= moment.media %></p>
-                <% end %>
-            </div>
-        <% end %>
-
+        </div>
     </div>
+
 </div>
