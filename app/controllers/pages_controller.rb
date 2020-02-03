@@ -7,5 +7,4 @@ class PagesController < ApplicationController
   def play
     @moments = Moment.where(seen: false).sample(4)
   end
-
 end
