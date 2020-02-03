@@ -20,7 +20,7 @@
                         <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
                             <div class="play-moments-media">
-                                <p><%= link_to (cl_image_tag moment.media, :transformation => { :crop=>"imagga_scale", :gravity=>"faces" }), moment_path(moment) %></p>
+                                <p><%= link_to (cl_image_tag moment.media, :transformation => { :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces" }), moment_path(moment) %></p>
                             </div>
 
                         <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
