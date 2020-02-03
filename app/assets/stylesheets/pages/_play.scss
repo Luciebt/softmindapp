@@ -4,7 +4,13 @@
     z-index: 1;
 }
 
-.play-moment-media {
+#play-moments-box {
+    margin: 0 auto;
+    width: 100vh;
+    height: 100vh;
+}
+
+.play-moments-media {
     z-index: -1;
 
     /* Set rules to fill background */
