@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+
+<h1>Play Moment View / Pages#home </h1>
+
+<h2>TODO : All moments take full page / display none on 3 of them</h2>
+
+    <% @moments.each do |moment| %>
+
+        <div class="timeline-moment-list">
+
+                <span><%= moment.id %></span>
+
+                <% if moment.media.present? %>
+
+                    <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
+                        <div class="moment-card">
+                            <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
+                        </div>
+
+                        <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
+
+                            <div class="moment-card">
+                                <p><%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_path(moment) %></p>
+                            </div>
+
+                        <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
+
+                            <div class="moment-card">
+                                <p>Audio file TODO: How to display AUDIO?</p>
+                            </div>
+
+                        <% end %>
+                <% end %>
+
+                <p><%= moment.text_content %></p>
+                <p><%= moment.media %></p>
+            <% end %>
+        </div>
+
+</div>
