@@ -2,6 +2,10 @@
 
 <h1>Play View </h1>
 
+<div id="slider">
+    <p>SLIDER</p>
+</div>
+
     <% @moments.each do |moment| %>
 
         <div class="play-moments-box">
@@ -11,27 +15,25 @@
                 <% if moment.media.present? %>
 
                     <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
-                        <div class="play-moment">
+                        <div class="play-moment-media">
                             <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
                         </div>
 
                         <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
-                            <div class="play-moment">
+                            <div class="play-moment-media">
                                 <p><%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_path(moment) %></p>
                             </div>
 
                         <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
 
-                            <div class="play-moment">
+                            <div class="play-moment-media">
                                 <p>Audio file TODO: How to display AUDIO?</p>
                             </div>
 
                         <% end %>
                 <% end %>
-
                 <p><%= moment.text_content %></p>
-                <p><%= moment.media %></p>
             <% end %>
         </div>
 
