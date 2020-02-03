@@ -36,14 +36,12 @@ class MomentsController < ApplicationController
 
   def new
     @moment = Moment.new
-    @friend = Friend.find(params[:friend_id])
-    if @friend.token == params[:token]
-      render :new
-    else
-      redirect_to render_404
-    end
-    # todo: Drag and drop logic
-    # to do: Drag and drop logic
+    # @friend = Friend.find(params[:friend_id])
+    # if @friend.token == params[:token]
+    #   render :new
+    # else
+    #   redirect_to render_404
+    # end
     @moment.user = current_user
   end
 

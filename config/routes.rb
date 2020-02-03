@@ -5,9 +5,12 @@ Rails.application.routes.draw do
 
   get "/play", to: "pages#play", as: :play
 
-  resources :moments, except: [:new]
+
+
+  resources :moments
+  # , except: [:new]
   get "/carrousel", to: "moments#carrousel"
-  get "/moments/new/:friend_id/:token", to: "moments#new", as: :new_moment
+  # get "/moments/new/:friend_id/:token", to: "moments#new", as: :new_moment
   resources :friends
 
 end
