@@ -1,36 +1,44 @@
-<h1>Play View </h1>
+<div id="play-container">
 
-<div id="slider">
-    <p>SLIDER</p>
-</div>
+    <h1>Play View </h1>
 
-    <% @moments.each do |moment| %>
+        <% @moments.each do |moment| %>
 
-        <div id="play-moments-box">
 
-                <span><%= moment.id %></span>
+            <div id="play-moments-box">
 
-                <% if moment.media.present? %>
+                    <% if moment.media.present? %>
 
-                    <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
-                        <div class="play-moments-media">
-                            <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
-                        </div>
-
-                        <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
-
+                        <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
                             <div class="play-moments-media">
-                                <p><%= link_to (cl_image_tag moment.media, :transformation => { :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces" }), moment_path(moment) %></p>
+                                <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video", :class => "moments-media") %></p>
+                                <div class="text-box">
+                                    <p><%= moment.text_content %></p>
+                                </div>
                             </div>
 
-                        <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
+                            <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
-                            <div class="play-moments-media">
-                                <p>Audio file TODO: How to display AUDIO?</p>
-                            </div>
+                                <div class="play-moments-media">
+                                    <p><%= link_to (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media"), moment_path(moment) %></p>
+                                    <div class="text-box">
+                                        <p><%= moment.text_content %></p>
+                                    </div>
+                                </div>
 
-                        <% end %>
+                            <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
+
+                                <div class="play-moments-media">
+                                    <p>Audio file TODO: How to display AUDIO?</p>
+                                    <div class="text-box">
+                                        <p><%= moment.text_content %></p>
+                                    </div>
+                                </div>
+
+                            <% end %>
+                    <% end %>
+
                 <% end %>
-                <p><%= moment.text_content %></p>
-            <% end %>
-        </div>
+            </div>
+
+</div>
