@@ -1,12 +1,20 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+  justify-content: space-evenly;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-lewagon-white {
+  background-color: white;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.fa-home, .fa-box-open, .fa-user-alt {
+  color: #404040;
+}
+
+
+.btn-transparent:hover {
+    background-color: #F8F8F8;
+    border-color: #F8F8F8; /*set the color you want here*/
 }
