@@ -15,7 +15,6 @@
 
 .play-moments-media {
     height: 100vh;
-    display: inline-block;
     text-align: center;
 }
 
@@ -23,6 +22,14 @@
     max-width: 100%;
     width: auto;
     height: auto;
+}
+
+.show {
+    display: block;
+}
+
+.unshow {
+    display: none;
 }
 
 .text-box {

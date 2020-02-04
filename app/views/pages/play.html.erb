@@ -4,16 +4,16 @@
     <i class="play-exit-icon fas fa-times"></i>
     <% end %>
 
+    <div class="play-moments-box">
+
         <% @moments.each do |moment| %>
-
-
-            <div id="play-moments-box">
 
                     <% if moment.media.present? %>
 
                         <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
-                            <div class="play-moments-media">
+                            <div class="play-moments-media unshow">
                                 <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video", :class => "moments-media") %></p>
+
                                 <div class="text-box">
                                     <p><%= moment.text_content %></p>
                                 </div>
@@ -21,8 +21,8 @@
 
                             <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
-                                <div class="play-moments-media">
-                                    <p><%= link_to (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media"), moment_path(moment) %></p>
+                                <div class="play-moments-media unshow">
+                                    <p><%= (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media") %></p>
                                     <div class="text-box">
                                         <p><%= moment.text_content %></p>
                                     </div>
@@ -30,7 +30,7 @@
 
                             <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
 
-                                <div class="play-moments-media">
+                                <div class="play-moments-media unshow">
                                     <p>Audio file TODO: How to display AUDIO?</p>
                                     <div class="text-box">
                                         <p><%= moment.text_content %></p>
@@ -41,6 +41,6 @@
                     <% end %>
 
                 <% end %>
-            </div>
+    </div>
 
 </div>
