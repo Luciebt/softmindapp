@@ -36,14 +36,12 @@ class MomentsController < ApplicationController
 
   def new
     @moment = Moment.new
-    @friend = Friend.find(params[:friend_id])
-    if @friend.token == params[:token]
-      render :new
-    else
-      redirect_to render_404
-    end
-    # todo: Drag and drop logic
-    # to do: Drag and drop logic
+    # @friend = Friend.find(params[:friend_id])
+    # if @friend.token == params[:token]
+    #   render :new
+    # else
+    #   redirect_to render_404
+    # end
     @moment.user = current_user
   end
 
@@ -91,8 +89,8 @@ class MomentsController < ApplicationController
   # timer running out - JS - update user model (time left)
 
   def carrousel
-    @moments = Moment.where(user: current_user).order_by(created_at)
-    # when moment comes up here, update moment seen: true
+    # this is the swipe method to access to moments from the timeline - need to implement a slide thing / buttons to view different pics
+    @moments = Moment.find(params[:moment_id])
   end
 
   def tagging

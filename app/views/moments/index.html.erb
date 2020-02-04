@@ -28,7 +28,7 @@
                                 <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
                                     <div class="moment-card">
-                                        <p><%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_path(moment) %></p>
+                                        <%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_carrousel_path(moment) %>
                                     </div>
 
                                 <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
