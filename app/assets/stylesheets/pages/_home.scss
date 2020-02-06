@@ -1,1 +1,13 @@
-// Specific CSS for your home-page
+.home-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("demo-bg.png");
+}
+
+.play-button {
+    padding: .7em;
+    width: 100px;
+}
