@@ -1,8 +1,6 @@
-<div class="container">
+<div class="index-container">
 
     <h1>Timeline</h1>
-
-    <div class="timeline-container">
 
         <div class="timeline-feed">
 
@@ -16,13 +14,13 @@
 
                     <% moments.each do |moment| %>
 
-                        <span><%= moment.id %></span>
+                    <hr>
 
                         <% if moment.media.present? %>
 
                             <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
                                 <div class="moment-card">
-                                    <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video") %></p>
+                                    <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video", :transformation => { :width => 400, :crop => "pad" }) %></p>
                                 </div>
 
                                 <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
@@ -41,12 +39,9 @@
                         <% end %>
 
                         <p><%= moment.text_content %></p>
-                        <p><%= moment.media %></p>
                     <% end %>
-                </div>
+            </div>
             <% end %>
-
         </div>
-    </div>
 
 </div>
