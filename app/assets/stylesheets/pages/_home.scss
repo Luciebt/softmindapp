@@ -4,11 +4,47 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("demo-bg.png");
+    background-image: url("/app/assets/images/demo-bg.png");
     background-position: center;
+}
+
+.new-content {
+    margin-top: 11em;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 6px solid #ffcc00;
 }
 
 .play-button {
     padding: .7em;
-    width: 100px;
+    justify-content: center;
+    align-items: flex-end;
+    align-items: flex-end;
+    text-align: center;
+    margin-top: 12em;
+    margin-bottom: 4em;
+
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        font-size: 24px;
+
+        a:hover {
+            background-color: white !important;
+            color: #0f4c75 !important;
+        }
+    }
+
+    button {
+        background-color: #0f4c75;
+        padding: .8em 2.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
 }
