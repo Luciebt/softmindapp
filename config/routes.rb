@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  devise_scope :user do
+    get 'profile', to: 'users#show'
+  end
+
   root to: 'pages#home'
 
   get "/play", to: "pages#play", as: :play

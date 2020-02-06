@@ -3,7 +3,7 @@
 
 .index-container {
     padding: 2.6em;
-    background-image: url("timeline-bg.png");
+    background-image: url("/app/assets/images/timeline-bg.png");
 }
 
 .timeline-feed {
@@ -17,4 +17,13 @@
     justify-content: center;
     height: auto;
     text-align: center;
+    a {
+        img {
+            margin: 1em !important;
+        }
+    }
+}
+
+.timeline-title {
+    border-bottom: 6px solid #ffcc00;
 }
