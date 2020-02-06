@@ -7,11 +7,12 @@
 $body-font: 'DM Serif Display',
 serif;
 
-$headers-font: "Raleway",
-"Helvetica",
-"sans-serif";
+$headers-font: 'DM Serif Display',
+serif;
 
-
+body, h1, h2, h3, h4, h5, a, p {
+    font-family: $body-font;
+}
 
 
 
