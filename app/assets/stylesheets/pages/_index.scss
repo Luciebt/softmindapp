@@ -1,2 +1,23 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.index-container {
+    padding: 2.6em;
+    background-image: url("timeline-bg.png");
+}
+
+.timeline-feed {
+    padding: .2em;
+}
+
+
+.timeline-feed {}
+
+.moment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    text-align: center;
+}
