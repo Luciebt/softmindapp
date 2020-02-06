@@ -1,9 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-lewagon-white fixed-bottom">
 
-  <button type="button" class="btn btn-transparent rounded"><i class="fas fa-home fa-lg"></i></button>
+  <%= link_to root_path do %>
+    <button type="button" class="btn btn-transparent rounded"><i class="fas fa-home fa-lg"></i></button>
+  <% end %>
 
-  <button type="button" class="btn btn-transparent rounded"><i class="fas fa-box-open fa-lg"></i></button>
+  <%= link_to moments_path do %>
+    <button type="button" class="btn btn-transparent rounded"><i class="fas fa-box-open fa-lg"></i></button>
+  <% end %>
 
-  <button type="button" class="btn btn-transparent rounded"><i class="fas fa-user-alt fa-lg"></i></button>
+  <%= link_to root_path do %>
+    <button type="button" class="btn btn-transparent rounded"><i class="fas fa-user-alt fa-lg"></i></button>
+  <% end %>
 
 </div>
