@@ -2,13 +2,15 @@
   <h1>Hey <%= @friend.name.capitalize %>! Welcome to softmind.app.</h1>
   <%= simple_form_for @moment do |f| %>
     <div class=“user-name”>
-    You’re about to upload content for your friend <%= @moment.user.first_name %>. You're a wonderful friend!
+    You’re about to upload content for your friend <%= @friend.user.first_name %>. You're a wonderful friend!
     </div><br>
     <div class="add-photos">
       <h6><strong>Add your moment — photo, video, audio, few words</strong></h6>
       <%= f.input :media, label: "ADD MEDIA" %>
       <%= f.input :media_cache, as: :hidden %>
       <%= f.input :text_content, label: "Type text" %>
+      <%= f.input :user_id, as: :hidden, input_html: {value: @friend.user.id} %>
+      <%= f.input :friend_id, as: :hidden, input_html: {value: @friend.id} %>
     </div>
     <%= f.submit 'Publish', class: "cute-button" %>
   <% end %>
