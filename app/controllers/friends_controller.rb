@@ -18,7 +18,7 @@ class FriendsController < ApplicationController
   def update
     @friend = Friend.find(params[:id])
     if @friend.update(friend_params)
-      redirect_to friend_path(@friend)
+      redirect_to friends_path
     else
       render :edit
     end
@@ -39,8 +39,7 @@ class FriendsController < ApplicationController
 
   def destroy
     @friend = Friend.find(params[:id])
-    authorize @friend
-    friend.destroy
+    @friend.destroy
     redirect_to friends_path
   end
 
@@ -50,4 +49,3 @@ class FriendsController < ApplicationController
     params.require(:friend).permit(:email, :phone_number, :name, :token)
   end
 end
-
