@@ -1,0 +1,9 @@
+Hey <%= @friend.name %>! Welcome to softmind.app.
+
+Your friend <%= User.find(@friend.user_id).first_name %> has added you to a trusted list of friends.
+
+Use the following link to send <%= User.find(@friend.user_id).first_name %> a video/picture/message of encouragement and mental support.
+
+To upload the media, follow this unique link that was generated for you: <%= @url %>.
+
+Thanks for sharing some love with <%= User.find(@friend.user_id).first_name %>, now have a great day!

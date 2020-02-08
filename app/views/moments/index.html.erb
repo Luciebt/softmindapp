@@ -1,6 +1,6 @@
 <div class="index-container">
 
-    <h1>Timeline</h1>
+    <h1 class="timeline-title">Timeline</h1>
 
         <div class="search">
           <%= form_tag moments_path, method: :get, class: "simple-form" do %>
@@ -32,13 +32,14 @@
 
                             <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
                                 <div class="moment-card">
-                                    <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video", :transformation => { :width => 400, :crop => "pad" }) %></p>
+                                    <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+
                                 </div>
 
                                 <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
                                     <div class="moment-card">
-                                        <%= link_to (cl_image_tag moment.media, :transformation => { :width => 400, :crop => "pad" }), moment_carrousel_path(moment) %>
+                                        <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }), moment_carrousel_path(moment) %>
                                     </div>
 
                                 <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>

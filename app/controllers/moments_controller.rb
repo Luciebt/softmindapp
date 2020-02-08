@@ -57,7 +57,7 @@ class MomentsController < ApplicationController
     @moment.user_id = current_user.id
     if @moment.save
       # redirect to? Custom page after drag and drop
-      redirect_to "http://localhost:3000"
+      redirect_to "https://media.giphy.com/media/GiwTarPTh3tG8/giphy.gif"
     else
       # reload the page? Error message?
       render :new
