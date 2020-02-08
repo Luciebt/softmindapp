@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey <%= @friend.name %>! Welcome to softmind.app.</h1>
+    <p>
+      Your friend <%= User.find(@friend.user_id).first_name %> has added you to a trusted list of friends.
+      Use the following link to send <%= User.find(@friend.user_id).first_name %> a video/picture/message of encouragement and mental support.<br>
+    </p>
+    <p>
+      To upload the media, follow this unique link that was generated for you: <%= @url %>.
+    </p>
+    <p>Thanks for sharing some love with <%= User.find(@friend.user_id).first_name %>, now have a great day!</p>
+  </body>
+</html>
+</p>
