@@ -1,3 +1,17 @@
-<h1><%= current_user %></h1>
+<div class="log-out">
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+</div>
+<div class="users-name">
+  <h2>
+    <%= current_user.first_name.capitalize %>
+    <%= current_user.last_name.capitalize %>
+  </h2>
+</div>
 
-<%= link_to  "friends", friends_path %>
+<div id="profile-menu">
+  <ul>
+    <li><%= link_to "Your Profile", edit_user_registration_path %></li>
+    <li><%= link_to "Friends", friends_path %></li>
+    <li><%= link_to "Become a PRO member", root_path %></li>
+  </ul>
+</div>

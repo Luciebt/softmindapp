@@ -42,27 +42,23 @@ class MomentsController < ApplicationController
   end
 
   def new
+    token = params[:token]
+    @friend = Friend.find_by(authentication_token: token)
     @moment = Moment.new
-    @friend = Friend.last
-    # @friend = Friend.find(params[:friend_id])
-    # if @friend.token == params[:token]
-    #   render :new
-    # else
-    #   redirect_to render_404
-    # end
-    @moment.user = current_user
   end
 
   def create
     @moment = Moment.new(moments_params)
-    @moment.user_id = current_user.id
     if @moment.save
       # redirect to? Custom page after drag and drop
-      redirect_to "https://media.giphy.com/media/GiwTarPTh3tG8/giphy.gif"
+      redirect_to moment_success_path
     else
       # reload the page? Error message?
       render :new
     end
+  end
+
+  def success
   end
 
   def show

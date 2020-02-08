@@ -1,0 +1,4 @@
+<%= render "friend_form.html.erb" %>
+<%= link_to "Delete", friend_path(@friend),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>

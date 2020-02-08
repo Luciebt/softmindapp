@@ -1,8 +1,8 @@
 <div>
   <% @friends.each do |friend| %>
-  <h1> <%= friend.id %> </h1> <br>
-  <p> <%= friend.name %> <br> </p>
+  <p> <%= friend.name.capitalize %> <br> </p>
   <p>  <%= friend.email %></p>
+  <%= link_to 'Edit', edit_friend_path(friend) %>
   <% end %>
 </div>
 
