@@ -3,11 +3,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hey <%= @friend.name %>! Welcome to softmind.app.</h1>
+    <h1>Hey <%= @friend.name.capitalize %>! Welcome to softmind.app.</h1>
     <p>
       Your friend <%= User.find(@friend.user_id).first_name %> has added you to a trusted list of friends.
       Use the following link to send <%= User.find(@friend.user_id).first_name %> a video/picture/message of encouragement and mental support.<br>
     </p>
+    <img src="https://ichef.bbci.co.uk/news/976/mcs/media/images/82377000/jpg/_82377877_dogthinkstock.jpg" alt="puppy eyes">
     <p>
       To upload the media, follow this unique link that was generated for you: <%= @url %>.
     </p>
