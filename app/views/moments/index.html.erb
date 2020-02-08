@@ -2,6 +2,18 @@
 
     <h1>Timeline</h1>
 
+        <div class="search">
+          <%= form_tag moments_path, method: :get, class: "simple-form" do %>
+          <%= text_field_tag :query,
+          params[:query],
+          placeholder: "Try searching for 'Nemo'",
+          class: "here"
+          %>
+          <%= submit_tag "Search", class: "btn-flat" %>
+          <% end %>
+          </div>
+        </div>
+
         <div class="timeline-feed">
 
             <% @moments.each do |year_and_month, moments| %>

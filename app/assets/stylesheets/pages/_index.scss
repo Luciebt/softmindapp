@@ -4,6 +4,7 @@
 .index-container {
     padding: 2.6em;
     background-image: url("timeline-bg.png");
+    width: 100vw;
 }
 
 .timeline-feed {
@@ -17,4 +18,78 @@
     justify-content: center;
     height: auto;
     text-align: center;
+}
+
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 200px;
+  margin-bottom: 0;
+  margin-left: 12px;
+}
+
+.head-text {
+  color: #3e4149;
+}
+
+.simple-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 5px;
+  margin: 10px auto;
+  box-shadow: rgba(0,0,0,.172549) 0 6px 12px 0;
+  cursor: pointer;
+  width: 400px;
+  height: 55px;
+  overflow: hidden;
+
+  input.here {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+}
+.search {
+  margin-top: 5px;
+}
+
+.here {
+  border: hidden;
+  border-right: 5px;
+  margin-left: 14px;
+  padding: none;
+}
+
+.btn-flat {
+  background-image: url("https://i.ibb.co/418V7b8/search.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 15px;
+  display: inline-block;
+  flex-grow: 1;
+  height: 55px;
+  width: 10px;
+  line-height: 40px;
+  padding: 0 2em;
+  border: 0;
+  color: transparent;
+  background-color: white;
+}
+
+.flexbox {
+  display: flex;
 }
