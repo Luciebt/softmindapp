@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: transparent;
+  background-color: white;
   transition: 0.5s background-color ease;
   justify-content: space-evenly;
 }
@@ -19,4 +19,14 @@
   background-color: #F8F8F8;
   border-color: #F8F8F8;
   /*set the color you want here*/
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 200px;
+  margin-bottom: 0;
+  margin-left: 12px;
 }

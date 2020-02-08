@@ -93,8 +93,8 @@ class MomentsController < ApplicationController
   # timer running out - JS - update user model (time left)
 
   def carrousel
-    # this is the swipe method to access to moments from the timeline - need to implement a slide thing / buttons to view different pics
-    @moments = Moment.find(params[:moment_id])
+    @moments = Moment.where(seen: false, user: current_user)
+    @moment = Moment.find(params[:moment_id])
   end
 
   def tagging
