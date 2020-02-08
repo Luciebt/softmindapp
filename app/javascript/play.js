@@ -41,5 +41,13 @@ function log() {
     console.log('hello');
 };
 
+
+const video = document.querySelector("video");
+
+function loadVideo() {
+    document.addEventListener("DOMContentLoaded", () => video.click());
+}
+
 export { log };
 export { setup };
+export { loadVideo };
