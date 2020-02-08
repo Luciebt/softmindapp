@@ -43,6 +43,7 @@ class MomentsController < ApplicationController
 
   def new
     @moment = Moment.new
+    @friend = Friend.last
     # @friend = Friend.find(params[:friend_id])
     # if @friend.token == params[:token]
     #   render :new
