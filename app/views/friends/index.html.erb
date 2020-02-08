@@ -1,3 +1,5 @@
+<%= link_to  "Add a new Friend", new_friend_path %>
+
 <div>
   <% @friends.each do |friend| %>
   <p> <%= friend.name.capitalize %> <br> </p>
@@ -5,4 +7,3 @@
   <%= link_to 'Edit', edit_friend_path(friend) %>
   <% end %>
 </div>
-
