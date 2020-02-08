@@ -28,14 +28,22 @@ class MomentsController < ApplicationController
   #     moments = Moment.
   # end
 
+
   def index
-    # @moment_index = Moment.group_by_month(:created_at, format: "%B %Y")
-    # @moments = Moment.group_by_month(&:created_at, format: "%B %Y") { |u| u.created_at }
-    @moments = Moment.where(seen: false).group_by_month(format: "%B %Y") { |m| m.created_at }
+    if params[:query].present?
+      friends = Friend.where("name ILIKE ?", "%#{params[:query]}%")
+      friend_ids = friends.map{|friend| friend.id}
+      @moments = Moment.where(id: friend_ids)
+    elsif params[:filter_by].present?
+      @moments = Moment.where(friend_id: params[:filter_by])
+    else
+      @moments = Moment.where(seen: false).group_by_month(format: "%B %Y") { |m| m.created_at }
+    end
   end
 
   def new
     @moment = Moment.new
+    @friend = Friend.last
     # @friend = Friend.find(params[:friend_id])
     # if @friend.token == params[:token]
     #   render :new

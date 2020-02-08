@@ -2,6 +2,18 @@
 
     <h1 class="timeline-title">Timeline</h1>
 
+        <div class="search">
+          <%= form_tag moments_path, method: :get, class: "simple-form" do %>
+          <%= text_field_tag :query,
+          params[:query],
+          placeholder: "Try searching for 'Nemo'",
+          class: "here"
+          %>
+          <%= submit_tag "Search", class: "btn-flat" %>
+          <% end %>
+          </div>
+        </div>
+
         <div class="timeline-feed">
 
             <% @moments.each do |year_and_month, moments| %>
@@ -20,7 +32,8 @@
 
                             <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
                                 <div class="moment-card">
-                                    <%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video", :transformation => { :width => 300, :crop => "pad" }) %>
+                                    <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+
                                 </div>
 
                                 <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>

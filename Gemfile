@@ -17,6 +17,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'letter_opener', group: :development
 
 gem 'simple_token_authentication' # adding tokens to friends
 
