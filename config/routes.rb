@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get 'profile', to: 'users#show'
+    get 'profile/edit', to: 'users#edit'
   end
 
   root to: 'pages#home'

@@ -1,6 +1,6 @@
 import "bootstrap";
 
-import { log, setup } from '../play';
+import { log, setup, loadVideo } from '../play';
 
 log();
 setup();

@@ -12,7 +12,8 @@
 
                         <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
                             <div class="play-moments-media unshow">
-                                <p><%= cl_image_tag("#{moment.media.file.public_id}.jpg", :resource_type=>"video", :class => "moments-media") %></p>
+
+                                    <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
 
                                 <div class="text-box">
                                     <p><%= moment.text_content %></p>
