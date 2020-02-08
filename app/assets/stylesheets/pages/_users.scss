@@ -1,0 +1,30 @@
+.users-name {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12em;
+}
+
+.log-out {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1em;
+}
+
+#profile-menu {
+  background-color: white;
+  position: fixed;
+  bottom: 55px;
+  width: 100vw;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  padding: 4vh;
+}
