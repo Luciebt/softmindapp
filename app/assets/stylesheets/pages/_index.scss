@@ -17,6 +17,7 @@
     justify-content: center;
     height: auto;
     text-align: center;
+
     a {
         img {
             margin: 1em !important;
@@ -26,4 +27,12 @@
 
 .timeline-title {
     border-bottom: 6px solid #ffcc00;
+}
+
+.timeline-show {
+
+}
+
+.timeline-unshow {
+    display: none;
 }

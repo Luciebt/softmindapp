@@ -1,9 +1,9 @@
-function setup() {
-    const moments = document.querySelectorAll(".play-moments-media");
-    const firstMoment = document.querySelector(".play-moments-media");
+function carrouselFct() {
+    const moments = document.querySelectorAll(".moments-media");
+    const firstMoment = document.querySelector(".moments-media");
 
-    firstMoment.classList.remove('unshow');
-    firstMoment.classList.add('show');
+    firstMoment.classList.remove('timeline-unshow');
+    firstMoment.classList.add('timeline-show');
 
     const moveShow = (event) => {
         const currentMoment = event.currentTarget;
@@ -12,16 +12,16 @@ function setup() {
 
         if (currentMoment == lastChild) {
             const firstChild = document.querySelector('.play-moments-media:first-child');
-            firstChild.classList.add('show');
-            firstChild.classList.remove('unshow');
+            firstChild.classList.add('timeline-show');
+            firstChild.classList.remove('timeline-unshow');
         } else {
             const nextSibling = document.querySelector('.show + .unshow')
-            nextSibling.classList.add('show');
-            nextSibling.classList.remove('unshow');
+            nextSibling.classList.add('timeline-show');
+            nextSibling.classList.remove('timeline-unshow');
         }
 
-        currentMoment.classList.remove('show');
-        currentMoment.classList.add('unshow');
+        currentMoment.classList.remove('timeline-show');
+        currentMoment.classList.add('timeine-unshow');
 
 
         // identify the element currently shown
@@ -36,16 +36,4 @@ function setup() {
     });
 }
 
-function log() {
-    console.log('hello');
-};
-
-const video = document.querySelector("video");
-
-function loadVideo() {
-    document.addEventListener("DOMContentLoaded", () => video.click());
-}
-
-export { log };
-export { setup };
-export { loadVideo };
+export { carrouselFct };
