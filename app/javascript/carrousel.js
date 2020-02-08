@@ -1,39 +1,38 @@
 function carrouselFct() {
-    const moments = document.querySelectorAll(".moments-media");
-    const firstMoment = document.querySelector(".moments-media");
+    let firstMoment = document.querySelector('.show-carrousel');
+    const moments = document.querySelectorAll(".timeline-moments-media");
 
-    firstMoment.classList.remove('timeline-unshow');
-    firstMoment.classList.add('timeline-show');
+    if (firstMoment) {
 
-    const moveShow = (event) => {
-        const currentMoment = event.currentTarget;
+        const moveShow = (event) => {
+            const currentMoment = event.currentTarget;
 
-        const lastChild = document.querySelector('.play-moments-media:last-child');
+            const lastChild = document.querySelector(".timeline-moments-media:last-child");
 
-        if (currentMoment == lastChild) {
-            const firstChild = document.querySelector('.play-moments-media:first-child');
-            firstChild.classList.add('timeline-show');
-            firstChild.classList.remove('timeline-unshow');
-        } else {
-            const nextSibling = document.querySelector('.show + .unshow')
-            nextSibling.classList.add('timeline-show');
-            nextSibling.classList.remove('timeline-unshow');
+            if (currentMoment == lastChild) {
+                const firstChild = document.querySelector(".timeline-moments-media:first-child");
+                firstChild.classList.add("show-carrousel");
+                firstChild.classList.remove('unshow-carrousel');
+            } else {
+                const nextSibling = document.querySelector('.show-carrousel + .unshow-carrousel')
+                nextSibling.classList.add('show-carrousel');
+                nextSibling.classList.remove('unshow-carrousel');
+            }
+
+            currentMoment.classList.remove('show-carrousel');
+            currentMoment.classList.add('unshow-carrousel');
         }
 
-        currentMoment.classList.remove('timeline-show');
-        currentMoment.classList.add('timeine-unshow');
+        moments.forEach((moment) => {
+            moment.addEventListener('click', moveShow);
+        });
+    } else {
+        console.log("else of carrousel");
 
-
-        // identify the element currently shown
-        // find out if it's the last element or not
-        // if it's not: take the next sibling and remove display none
-        // if it's the last element: take the first child
-        // add display none to the first element
     }
 
-    moments.forEach((moment) => {
-        moment.addEventListener('click', moveShow);
-    });
+
+
 }
 
 export { carrouselFct };
