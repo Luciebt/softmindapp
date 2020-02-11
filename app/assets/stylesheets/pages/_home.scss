@@ -4,26 +4,30 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("/app/assets/images/demo-bg.png");
-    background-position: center;
+    background-image: url("https://i.ibb.co/wLGMFrB/Screen-Shot-2020-02-11-at-20-44-24.png");
+    background-position: bottom;
+    border-bottom: 45px solid white;
+}
+
+.logo-placement {
+  position: fixed;
+  top: 87px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
 }
 
 .new-content {
-    margin-top: 11em;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 6px solid #ffcc00;
+  justify-content: center;
+  align-items: center;
 }
 
 .play-button {
     padding: .7em;
     justify-content: center;
     align-items: flex-end;
-    align-items: flex-end;
     text-align: center;
-    margin-top: 12em;
-    margin-bottom: 4em;
-
 
     a {
         text-decoration: none;
