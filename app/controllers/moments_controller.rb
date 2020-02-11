@@ -31,11 +31,13 @@ class MomentsController < ApplicationController
 
   def index
     if params[:query].present?
-      friends = Friend.where("name ILIKE ?", "%#{params[:query]}%")
-      friend_ids = friends.map{|friend| friend.id}
-      @moments = Moment.where(id: friend_ids)
+      # find the friend instance from the friend name
+      friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
+      # friend_ids = friends.map{|friend| friend.id}
+      @moments = Moment.where(friend_id: friend.id)
     elsif params[:filter_by].present?
       @moments = Moment.where(friend_id: params[:filter_by])
+      # @videos = Moment.where(moment.media_type: "video")
     else
       @moments = Moment.where(seen: false).group_by_month(format: "%B %Y") { |m| m.created_at }
     end
