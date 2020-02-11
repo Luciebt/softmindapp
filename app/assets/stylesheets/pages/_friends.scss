@@ -27,3 +27,26 @@
   margin-top: 20vh;
   margin-right: 3vh;
 }
+
+.inputs-div {
+  padding: 0 2vh;
+
+  input {
+    border-radius: 20px;
+  }
+}
+
+.submit-cancel-buttons {
+  display: flex;
+  justify-content: center;
+
+  button {
+    background-color: transparent;
+    border: 0px;
+    font-size: 4.4vh;
+  }
+
+  link {
+    text-color: red;
+  }
+}
