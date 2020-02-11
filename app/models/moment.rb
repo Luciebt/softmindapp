@@ -9,16 +9,10 @@ class Moment < ApplicationRecord
   IMG_TYPES = %w(jpg png jpeg gif bmp tiff pdf).freeze
   AUDIO_TYPES = %w(mp3 flac wav ogg).freeze
 
-  # create enum with all media types
-  # add media type field in moments table
-  # regex to file extension
-
-
   private
 
   def assign_type
-    puts self.media.resource_type
-    # self.update(media_type: self.media.resource_type)
+      self.update(media_type: self.media.resource_type)
   end
 
 end
