@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get "/play", to: "pages#play", as: :play
+  get "moments/success", to: "moments#success", as: :moment_success
 
   # commented out friends / token related code to test moments uploads
 
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   # get "/moments/new/:friend_id/:token", to: "moments#new", as: :new_moment
   end
   get "moments/new/:token", to: "moments#new", as: :new_moment
-  get "moments/success", to: "moments#success", as: :moment_success
+
 
   resources :friends
 
