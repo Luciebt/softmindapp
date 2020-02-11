@@ -1,15 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-lewagon-white fixed-bottom">
 
-  <%= link_to root_path do %>
-    <button type="button" class="btn btn-transparent rounded"><i class="fas fa-home fa-lg"></i></button>
+  <%= link_to moments_path do %>
+    <button type="button" class="small"><%= image_tag "carebox.png" %></button>
   <% end %>
 
-  <%= link_to moments_path do %>
-    <button type="button" class="btn btn-transparent rounded"><i class="fas fa-box-open fa-lg"></i></button>
+  <%= link_to root_path do %>
+    <button type="button" class="small"><%= image_tag "home.png" %></button>
   <% end %>
 
   <%= link_to profile_path do %>
-    <button type="button" class="btn btn-transparent rounded"><i class="fas fa-user-alt fa-lg"></i></button>
+    <button type="button" class="small"><%= image_tag "profile.png" %></button>
   <% end %>
 
 </div>
