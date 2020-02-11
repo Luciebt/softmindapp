@@ -1,9 +1,18 @@
-<%= link_to  "Add a new Friend", new_friend_path %>
+<div class="add-new">
+  <%= link_to  "+ Add Friend", new_friend_path %>
+</div>
 
-<div>
-  <% @friends.each do |friend| %>
-  <p> <%= friend.name.capitalize %> <br> </p>
-  <p>  <%= friend.email %></p>
-  <%= link_to 'Edit', edit_friend_path(friend) %>
-  <% end %>
+<div class="main-div">
+  <div id="friends-div">
+    <% @friends.each do |friend| %>
+    <div class="each-friends-container">
+      <div class="friends-name">
+        <%= friend.name.capitalize %> <br> <%= friend.email %></p>
+      </div>
+      <div class="edit-button">
+        <%= link_to "", edit_friend_path(friend), :class=>"fas fa-pencil-alt" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
