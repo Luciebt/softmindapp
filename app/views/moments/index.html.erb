@@ -1,18 +1,3 @@
-        <%
-=begin%>
- <div class="button-box">
-            <%= button_to  "Videos", moments.select { |moment| moment.media_type == "video" } %>
-        </div>
-
-        <div class="button-box">
-            <%= button_to  "Images", moments.select { |moment| moment.media_type == "image" } %>
-        </div>
-
-        <div class="button-box">
-            <%= button_to  "Words", moments.select { |moment| ! moment.media && moment.text_content == true } %>
-        </div>
-<%
-=end%>
 <div class="index-container">
 
     <h1 class="timeline-title">Timeline</h1>
@@ -29,6 +14,8 @@
           </div>
         </div>
 
+        <button type="button" class="btn btn-light" id="video-button">Video</button>
+        <button type="button" class="btn btn-light" id="image-button">Image</button>
 
     <div class="timeline-feed">
 
@@ -37,10 +24,28 @@
                     <p>"not enough data"</p>
 
             <% else %>
+
+                <div id="video-tab" class="unshow">
+                    <% @videos.each do |video| %>
+                        <div class="moment-card">
+                            <%= video_tag("#{video.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+                        </div>
+                    <% end %>
+                </div>
+
+                <div id="image-tab" class="unshow">
+                <% @images.each do |image| %>
+                    <div class="moment-card">
+                        <%= link_to (cl_image_tag image.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(image) %>
+                    </div>
+                <% end %>
+                </div>
+
+
                 <div class="timeline-dates">
                     <h2><%= year_and_month %></h2>
                 </div>
-                <div class="timeline-moment-list">
+                <div class="timeline-moment-list" id="default-index">
                     <% moments.each do |moment| %>
                 <hr>
                     <% if moment.media.present? %>
@@ -51,10 +56,6 @@
                         <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
                             <div class="moment-card">
                                 <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(moment) %>
-                            </div>
-                         <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
-                            <div class="moment-card">
-                                <p>Audio file TODO: How to display AUDIO?</p>
                             </div>
                             <% end %>
                         <% end %>
