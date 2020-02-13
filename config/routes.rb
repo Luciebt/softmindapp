@@ -14,11 +14,9 @@ Rails.application.routes.draw do
   # commented out friends / token related code to test moments uploads
 
   resources :moments, except: [:new] do
-  # , except: [:new]
   get "/carrousel", to: "moments#carrousel"
-  # get "/moments/new/:friend_id/:token", to: "moments#new", as: :new_moment
-  end
-  get "moments/new/:token", to: "moments#new", as: :new_moment
+end
+get "moments/new/:token", to: "moments#new", as: :new_moment
 
 
   resources :friends

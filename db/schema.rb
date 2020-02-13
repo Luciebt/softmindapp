@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_01_144604) do
+ActiveRecord::Schema.define(version: 2020_02_11_182638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_02_01_144604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "friend_id"
+    t.string "media_type"
     t.index ["friend_id"], name: "index_moments_on_friend_id"
     t.index ["user_id"], name: "index_moments_on_user_id"
   end
