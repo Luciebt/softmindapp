@@ -14,13 +14,6 @@
         <%= button_tag type: 'reset' do %>
           <i class="far fa-times-circle"></i>
         <% end %>
-        <div class="delte-button">
-          <%= link_to friend_path(@friend),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" } do %>
-                      <i class="far fa-trash-alt"></i>
-                      <% end %>
-        </div>
       </div>
     </div>
   <% end %>

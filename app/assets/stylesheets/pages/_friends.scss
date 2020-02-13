@@ -19,13 +19,22 @@
 .each-friends-container {
   display: flex;
   justify-content: space-between;
-  padding: 1vh 4vh;
+  margin: 2vh 5vh;
+  border-bottom-width: 1px;
+  border-bottom-color: grey;
+  border-bottom-style: solid;
+  a {
+    color: #6b6b6b;
+  }
 }
 
 .add-new {
   text-align: right;
   margin-top: 20vh;
   margin-right: 3vh;
+  a {
+    color: #6b6b6b;
+  }
 }
 
 .inputs-div {
@@ -39,14 +48,26 @@
 .submit-cancel-buttons {
   display: flex;
   justify-content: center;
+  margin: 0vh 2vh;
+  border-bottom: 1px solid grey;
 
   button {
     background-color: transparent;
     border: 0px;
     font-size: 4.4vh;
   }
+}
 
-  link {
-    text-color: red;
+.delete-button {
+  background-color: white;
+  border-radius: 20px;
+  position: absolute;
+  right: 1vh;
+  padding-left: 6px;
+  padding-right: 6px;
+  box-shadow: 4px 4px 4px #888888;
+  a {
+    color: red;
   }
 }
+
