@@ -31,10 +31,9 @@ class MomentsController < ApplicationController
 
   def index
     if params[:query].present?
-      # find the friend instance from the friend name
-      # @friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
+      @friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
       # friend_ids = friends.map{|friend| friend.id}
-      # @moments = Moment.where(friend_id: @friend.id)
+      @moments = Moment.where(friend_id: @friend.id)
     elsif params[:filter_by].present?
       @moments = Moment.where(friend_id: params[:filter_by])
     else

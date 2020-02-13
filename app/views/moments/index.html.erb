@@ -67,11 +67,12 @@
                 <% end %>
                 </div>
 
-                <div class="timeline-dates">
-                </div>
                 <div class="timeline-moment-list" id="default-index">
-                <hr>
 
+                    <div class="timeline-dates">
+                        <p><%= moment.created_at.strftime('%B %Y') %></p>
+                        <br>
+                    </div>
 
                 <% if moment.media_type == "video" %>
                     <div class="moment-card">
