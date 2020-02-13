@@ -38,9 +38,10 @@ class MomentsController < ApplicationController
     elsif params[:filter_by].present?
       @moments = Moment.where(friend_id: params[:filter_by])
     else
-      @moments = Moment.where(seen: false).group_by_month(format: "%B %Y") { |m| m.created_at }
+      @moments = Moment.where(seen: false).order(created_at: :asc)
       @videos = Moment.where(seen: false, media_type: "video")
       @images = Moment.where(seen: false, media_type: "image")
+      @texts = Moment.where(seen: false, media: nil)
     end
   end
 
