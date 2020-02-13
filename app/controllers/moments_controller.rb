@@ -49,6 +49,7 @@ end
     @unseen_moments = @moments.select { |moment| !moment.seen }
 
     if @unseen_moments.empty?
+      redirect_to moment_none_path
       # Redirect to timeline or special page: You've played all your moments of the day!'
     else
       @moments = @unseen_moments.first(5)

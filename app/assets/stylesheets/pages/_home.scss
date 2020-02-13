@@ -1,50 +1,59 @@
+body {
+  background-image: url("https://i.ibb.co/wLGMFrB/Screen-Shot-2020-02-11-at-20-44-24.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+};
+
 .home-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("/app/assets/images/demo-bg.png");
-    background-position: center;
-}
 
+    border-bottom: 45px solid white;
+}
+.logo-placement {
+  position: fixed;
+  top: 87px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+}
 .new-content {
-    margin-top: 11em;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 6px solid #ffcc00;
+  justify-content: center;
+  align-items: center;
 }
-
 .play-button {
     padding: .7em;
     justify-content: center;
     align-items: flex-end;
-    align-items: flex-end;
     text-align: center;
-    margin-top: 12em;
-    margin-bottom: 4em;
-
-
+    position: fixed;
+    bottom: 97px;
+    width: 100%;
     a {
         text-decoration: none;
         font-weight: bold;
         color: white;
         font-size: 24px;
-
         a:hover {
             background-color: white !important;
-            color: #0f4c75 !important;
+            color: #4E67B7 !important;
         }
     }
-
     button {
-        background-color: #0f4c75;
+        background-color: #4E67B7;
         padding: .8em 2.2em;
-        border-radius: 10px;
+        border-radius: 16px;
         cursor: pointer;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        -ms-border-radius: 16px;
+        -o-border-radius: 16px;
+        border-color: transparent;
+        justify-content: center;
+        width: 70%;
 }
 }

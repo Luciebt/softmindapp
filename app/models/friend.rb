@@ -9,4 +9,3 @@ class Friend < ApplicationRecord
     FriendMailer.with(friend: self).new_friend_email.deliver_now
   end
 end
-
