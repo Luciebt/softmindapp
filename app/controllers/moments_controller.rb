@@ -1,48 +1,28 @@
 class MomentsController < ApplicationController
-  # def index
-  #     hash = {}
-  #     # get all moments, ordered by date
-  #     # iterate through moments
-  #     # for each moment: first check year
-  #     # if year exists in hash, move into year, else create year
-  #     # if month exists in hash[year], move into month, else create month
-  #     # append moment to month
-  #     {
-  #         2020 => {
-  #             January: [@moment, @moment],
-  #             February: [],
-  #             March: [],
-  #             April: [],
-  #         },
-  #         2019
-  #     }
-  # end
-
-  # /moments?year=2020,month=1
-  # def selected_moments
-  #     year = params[:year]
-  #     month = params[:month]
-  #     start_date
-  #     end_date
-  #     # search through moments for created_at between start date and end date
-  #     moments = Moment.
-  # end
-
 
   def index
     if params[:query].present?
-      @friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
-      # friend_ids = friends.map{|friend| friend.id}
+
+      if @friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
+
       @moments = Moment.where(friend_id: @friend.id)
-    elsif params[:filter_by].present?
-      @moments = Moment.where(friend_id: params[:filter_by])
+      @videos = Moment.where(seen: false, friend_id: @friend.id, media_type: "video")
+      @images = Moment.where(seen: false, friend_id: @friend.id, media_type: "image")
+      @texts = Moment.where(seen: false, friend_id: @friend.id, media: nil)
+
+      else
+        redirect_to moments_path
+      end
+    # elsif params[:filter_by].present?
+    #   @moments = Moment.where(friend_id: params[:filter_by])
     else
       @moments = Moment.where(seen: false).order(created_at: :asc)
       @videos = Moment.where(seen: false, media_type: "video")
       @images = Moment.where(seen: false, media_type: "image")
       @texts = Moment.where(seen: false, media: nil)
-    end
+
   end
+end
 
   def new
     token = params[:token]
@@ -115,4 +95,10 @@ class MomentsController < ApplicationController
   def moments_params
     params.require(:moment).permit(:text_content, :media, :user_id, :friend_id, :seen)
   end
+
+  def fetching_moments
+
+  end
+
+
 end

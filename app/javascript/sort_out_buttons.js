@@ -61,6 +61,7 @@ const sortingOut = () => {
         textContent.classList.remove("show");
         textContent.classList.add("unshow");
 
+        indexTimeline.classList.remove("unshow");
         indexTimeline.classList.add("show");
     })
 

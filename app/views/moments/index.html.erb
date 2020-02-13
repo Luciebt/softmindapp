@@ -14,10 +14,13 @@
           </div>
         </div>
 
-        <button type="button" class="btn btn-light" id="all-button">All</button>
-        <button type="button" class="btn btn-light" id="video-button">Video</button>
-        <button type="button" class="btn btn-light" id="image-button">Image</button>
-        <button type="button" class="btn btn-light" id="text-button">Words</button>
+        <div id="button-box">
+            <%= link_to  "All", moments_path, :class => "btn btn-light" %>
+            <button type="button" class="btn btn-light" id="all-button">All</button>
+            <button type="button" class="btn btn-light" id="video-button">Video</button>
+            <button type="button" class="btn btn-light" id="image-button">Image</button>
+            <button type="button" class="btn btn-light" id="text-button">Words</button>
+        </div>
 
     <div class="timeline-feed">
 
