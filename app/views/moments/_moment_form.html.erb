@@ -1,14 +1,15 @@
 <div class="card-white">
-  <h1>Hey <%= @friend.name.capitalize %>! Welcome to softmind.app!</h1>
+  <h1>Hello <%= @friend.name.capitalize %>!</h1>
+  <h2 class="font">Welcome to softmind.app!</h2>
   <%= simple_form_for @moment do |f| %>
-    <div class=“user-name”>
-    You’re about to upload content for your friend <%= @friend.user.first_name %>. You're a wonderful friend!
+    <div class=“font1”>
+    <h3 class="font1"> You’re about to upload content for your friend <%= @friend.user.first_name %>. You're a wonderful friend!</h3>
     </div><br>
-    <div class="add-photos">
-      <h6><strong>Upload something of value to <%= @friend.name.capitalize %> — a photo, video, audio, a few words etc. </strong></h6>
+    <div>
+      <h4 class="font1"><strong>Upload something of value to <%= @friend.name.capitalize %>, a photo, video, audio, a few words etc. </strong></h4>
     Something that will make them smile!
     </div><br>
-      <%= f.input :media, label: "ADD MEDIA" %>
+      <%= f.input :media, label: "add media" %>
       <%= f.input :media_cache, as: :hidden %>
       <%= f.input :text_content, label: "Type text" %>
       <%= f.input :user_id, as: :hidden, input_html: {value: @friend.user.id} %>
