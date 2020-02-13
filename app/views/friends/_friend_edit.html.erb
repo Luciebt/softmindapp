@@ -1,0 +1,8 @@
+<%= render "friend_form" %>
+<div class="delete-button">
+  <%= link_to friend_path(@friend),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt"> Remove</i>
+            <% end %>
+</div>
