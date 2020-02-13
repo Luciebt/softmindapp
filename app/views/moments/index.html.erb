@@ -14,6 +14,7 @@
           </div>
         </div>
 
+        <button type="button" class="btn btn-light" id="all-button">All</button>
         <button type="button" class="btn btn-light" id="video-button">Video</button>
         <button type="button" class="btn btn-light" id="image-button">Image</button>
         <button type="button" class="btn btn-light" id="text-button">Words</button>
@@ -30,6 +31,7 @@
                     <% @videos.each do |video| %>
                         <div class="timeline-dates">
                             <p><%= video.created_at.strftime('%B %Y') %></p>
+                            <br>
                         </div>
 
                         <div class="moment-card">
@@ -45,7 +47,6 @@
                         <p><%= image.created_at.strftime('%B %Y') %></p>
                         <br>
                     </div>
-
                     <div class="moment-card">
                         <%= link_to (cl_image_tag image.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(image) %>
                     </div>
@@ -57,6 +58,7 @@
 
                     <div class="timeline-dates">
                         <p><%= text.created_at.strftime('%B %Y') %></p>
+                        <br>
                     </div>
 
                     <div class="moment-card">
@@ -72,16 +74,17 @@
 
 
                 <% if moment.media_type == "video" %>
-                            <div class="moment-card">
-                                <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
-                            </div>
-                 <% elsif moment.media_type == "image" %>
-                            <div class="moment-card">
-                                <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(moment) %>
-                            </div>
-                <% end %>
-                    <p><%= moment.text_content %></p>
+                    <div class="moment-card">
+                        <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+                    </div>
 
+                 <% elsif moment.media_type == "image" %>
+                    <div class="moment-card">
+                        <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(moment) %>
+                    </div>
+                <% end %>
+
+                    <p><%= moment.text_content %></p>
         <% end %>
     <% end %>
     </div>

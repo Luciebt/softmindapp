@@ -3,6 +3,7 @@ const sortingOut = () => {
     const videos = document.getElementById('video-button');
     const images = document.getElementById('image-button');
     const texts = document.getElementById('text-button');
+    const all = document.getElementById('all-button');
     const indexTimeline = document.getElementById("default-index");
 
     const videoContent = document.getElementById('video-tab');
@@ -47,6 +48,20 @@ const sortingOut = () => {
         indexTimeline.classList.add("unshow");
         textContent.classList.remove("unshow");
         textContent.classList.add("show");
+    })
+
+    all.addEventListener('click', function() {
+
+        videoContent.classList.remove("show");
+        videoContent.classList.add("unshow");
+
+        imageContent.classList.remove("show");
+        imageContent.classList.add("unshow");
+
+        textContent.classList.remove("show");
+        textContent.classList.add("unshow");
+
+        indexTimeline.classList.add("show");
     })
 
 }
