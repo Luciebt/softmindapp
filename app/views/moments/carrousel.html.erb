@@ -4,41 +4,37 @@
     <i class="play-exit-icon fas fa-times"></i>
     <% end %>
 
-    <div class="play-moments-box">
-
         <% @moments.each do |moment| %>
 
-                    <% if moment.media.present? %>
+            <% if moment.media.present? %>
 
-                    <% if @moment == moment %>
-                        <% @show_class = 'show-carrousel' %>
-                    <% else %>
-                        <% @show_class = 'unshow-carrousel' %>
-                    <% end %>
+            <% if @moment == moment %>
+                <% @show_class = 'show-carrousel' %>
+            <% else %>
+                <% @show_class = 'unshow-carrousel' %>
+            <% end %>
 
-                        <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
-                            <div class="timeline-moments-media <%= @show_class %>">
+                <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
+                    <div class="timeline-moments-media <%= @show_class %>">
 
-                                    <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+                            <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-video moments-media") %>
 
-                                <div class="text-box">
-                                    <p><%= moment.text_content %></p>
-                                </div>
+                        <div class="text-box">
+                            <p><%= moment.text_content %></p>
+                        </div>
+                    </div>
+
+                    <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
+
+                        <div class="timeline-moments-media <%= @show_class %>">
+                            <p><%= (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media") %></p>
+                            <div class="text-box">
+                                <p><%= moment.text_content %></p>
                             </div>
+                        </div>
 
-                            <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
-
-                                <div class="timeline-moments-media <%= @show_class %>">
-                                    <p><%= (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media") %></p>
-                                    <div class="text-box">
-                                        <p><%= moment.text_content %></p>
-                                    </div>
-                                </div>
-
-                            <% end %>
                     <% end %>
+            <% end %>
 
-                <% end %>
-    </div>
-
+        <% end %>
 </div>
