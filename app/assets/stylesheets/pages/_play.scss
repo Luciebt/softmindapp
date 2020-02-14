@@ -1,5 +1,7 @@
 #play-container {
     background-color: black;
+    margin: 0 auto;
+    position: relative;
 
     h1 {
         color: white;
@@ -9,7 +11,6 @@
 .play-exit-icon {
     color: white;
     font-size: 26px;
-    margin-left: 92%;
     margin-bottom: .7em;
 }
 
@@ -24,6 +25,7 @@
 
 .moments-media {
     max-width: 100%;
+    min-width: 80%;
     width: auto;
     height: auto;
 }
