@@ -35,15 +35,6 @@
                                     </div>
                                 </div>
 
-                            <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
-
-                                <div class="timeline-moments-media <%= @show_class %>">
-                                    <p>Audio file TODO: How to display AUDIO?</p>
-                                    <div class="text-box">
-                                        <p><%= moment.text_content %></p>
-                                    </div>
-                                </div>
-
                             <% end %>
                     <% end %>
 
