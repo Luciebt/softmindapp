@@ -1,16 +1,16 @@
 function carrouselFct() {
     let firstMoment = document.querySelector('.show-carrousel');
-    const moments = document.querySelectorAll(".timeline-moments-media");
+    const moments = document.querySelectorAll(".timeline-media");
 
     if (firstMoment) {
 
         const moveShow = (event) => {
             const currentMoment = event.currentTarget;
 
-            const lastChild = document.querySelector(".timeline-moments-media:last-child");
+            const lastChild = document.querySelector(".timeline-media:last-child");
 
             if (currentMoment == lastChild) {
-                const firstChild = document.querySelector(".timeline-moments-media:first-child");
+                const firstChild = document.querySelector(".timeline-media:first-child");
                 firstChild.classList.add("show-carrousel");
                 firstChild.classList.remove('unshow-carrousel');
             } else {

@@ -15,7 +15,7 @@
             <% end %>
 
                 <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
-                    <div class="timeline-moments-media <%= @show_class %>">
+                    <div class="timeline-media play-moments-media <%= @show_class %>">
 
                             <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-video moments-media") %>
 
@@ -26,7 +26,7 @@
 
                     <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
-                        <div class="timeline-moments-media <%= @show_class %>">
+                        <div class="timeline-media play-moments-media <%= @show_class %>">
                             <p><%= (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media") %></p>
                             <div class="text-box">
                                 <p><%= moment.text_content %></p>
