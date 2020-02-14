@@ -6,7 +6,6 @@ function carrouselFct() {
 
         const moveShow = (event) => {
             const currentMoment = event.currentTarget;
-
             const lastChild = document.querySelector(".timeline-media:last-child");
 
             if (currentMoment == lastChild) {
