@@ -4,8 +4,6 @@
     <i class="play-exit-icon fas fa-times"></i>
     <% end %>
 
-    <div class="play-moments-box">
-
         <% @moments.each do |moment| %>
 
                     <% if moment.media.present? %>
@@ -13,7 +11,7 @@
                         <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
                             <div class="play-moments-media unshow">
 
-                                    <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+                                    <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-video moments-media") %>
 
                                 <div class="text-box">
                                     <p><%= moment.text_content %></p>
@@ -29,19 +27,8 @@
                                     </div>
                                 </div>
 
-                            <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
-
-                                <div class="play-moments-media unshow">
-                                    <p>Audio file TODO: How to display AUDIO?</p>
-                                    <div class="text-box">
-                                        <p><%= moment.text_content %></p>
-                                    </div>
-                                </div>
-
                             <% end %>
                     <% end %>
 
                 <% end %>
-    </div>
-
 </div>
