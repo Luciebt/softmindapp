@@ -1,15 +1,3 @@
-
-<%
-=begin%>
- <%= @moments.each do |moment| %>
-    if moment == @moment
-    <%= image_tag  @moment.media.url %>
-
-<% end %>
-
-<%
-=end%>
-
 <div id="play-container">
 
     <%= link_to moments_path do %>
