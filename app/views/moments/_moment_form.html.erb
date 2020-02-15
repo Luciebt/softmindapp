@@ -9,12 +9,11 @@
       <h6><strong>Upload something of value to <%= User.find(@friend.user_id).first_name.capitalize %> — a photo, video, audio, a few words etc. </strong></h6>
     Something that will make them smile!
     </div><br>
-      <%= f.input :media, label: "Add media" %>
+      <%= f.input :media, :multiple => true, label: "Add media" %>
       <%= f.input :media_cache, as: :hidden %>
       <%= f.input :text_content, label: "Add a beautiful message here" %>
       <%= f.input :user_id, as: :hidden, input_html: {value: @friend.user.id} %>
       <%= f.input :friend_id, as: :hidden, input_html: {value: @friend.id} %>
-    </div>
     <%= f.submit 'Publish', class: "cute-button" %>
   <% end %>
 </div>

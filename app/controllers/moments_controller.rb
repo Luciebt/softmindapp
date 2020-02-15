@@ -32,9 +32,10 @@ end
 
   def create
     @moment = Moment.new(moments_params)
+
     if @moment.save
       # redirect to? Custom page after drag and drop
-      redirect_to moment_success_path
+      redirect_to moment_success_path(friend_id: moments_params[:friend_id])
     else
       # reload the page? Error message?
       render :new
@@ -53,6 +54,7 @@ end
   end
 
   def success
+    @friend = Friend.find(params[:friend_id])
   end
 
   def show
