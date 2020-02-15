@@ -10,59 +10,53 @@ const sortingOut = () => {
     const imageContent = document.getElementById('image-tab');
     const textContent = document.getElementById('text-tab');
 
+    function removeShow(content) {
+        content.classList.remove("show");
+        content.classList.add("unshow");
+    }
+
+    function addShow(content) {
+        content.classList.remove("unshow");
+        content.classList.add("show");
+    }
+
     videos.addEventListener('click', function() {
-        console.log("hello you");
+        console.log("videos");
 
-        imageContent.classList.remove("show");
-        imageContent.classList.add("unshow");
+        removeShow(imageContent);
+        removeShow(textContent);
+        removeShow(indexTimeline);
+        addShow(videoContent);
 
-        textContent.classList.remove("show");
-        textContent.classList.add("unshow");
-
-        indexTimeline.classList.add("unshow");
-        videoContent.classList.remove("unshow");
-        videoContent.classList.add("show");
     })
 
     images.addEventListener('click', function() {
+        console.log('images');
 
-        videoContent.classList.remove("show");
-        videoContent.classList.add("unshow");
+        removeShow(videoContent);
+        removeShow(textContent);
+        removeShow(indexTimeline);
+        addShow(imageContent);
 
-        textContent.classList.remove("show");
-        textContent.classList.add("unshow");
-
-        indexTimeline.classList.add("unshow");
-        imageContent.classList.remove("unshow");
-        imageContent.classList.add("show");
     })
 
     texts.addEventListener('click', function() {
+        console.log('texts');
 
-        videoContent.classList.remove("show");
-        videoContent.classList.add("unshow");
-
-        imageContent.classList.remove("show");
-        imageContent.classList.add("unshow");
-
-        indexTimeline.classList.add("unshow");
-        textContent.classList.remove("unshow");
-        textContent.classList.add("show");
+        removeShow(videoContent);
+        removeShow(imageContent);
+        removeShow(indexTimeline);
+        addShow(textContent);
     })
 
     all.addEventListener('click', function() {
+        console.log('all');
 
-        videoContent.classList.remove("show");
-        videoContent.classList.add("unshow");
+        removeShow(videoContent);
+        removeShow(imageContent);
+        removeShow(textContent);
+        addShow(indexTimeline);
 
-        imageContent.classList.remove("show");
-        imageContent.classList.add("unshow");
-
-        textContent.classList.remove("show");
-        textContent.classList.add("unshow");
-
-        indexTimeline.classList.remove("unshow");
-        indexTimeline.classList.add("show");
     })
 
 }

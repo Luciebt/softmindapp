@@ -52,14 +52,18 @@ function setup() {
 
 
 function updateStatus(ids) {
+
     const button2 = document.querySelector(".play-exit-icon");
-    button2.addEventListener('click', event => {
-        event.preventDefault()
-        const hiddenTag = document.querySelector('.input-seen')
-        hiddenTag.value = ids
-        const form = document.querySelector('.form-seen')
-        form.submit()
-    })
+
+    if (button2)  {
+            button2.addEventListener('click', event => {
+                event.preventDefault()
+                const hiddenTag = document.querySelector('.input-seen')
+            hiddenTag.value = ids
+            const form = document.querySelector('.form-seen')
+            form.submit()
+        })
+    }
 }
 
 export { setup };
