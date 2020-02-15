@@ -1,11 +1,13 @@
 <div class="each-friends-container">
-  <div class="friends-name">
-    <p><%= friend.name.capitalize %> <br> <%= friend.email %></p>
+  <div class="friend-details" data-friend="<%= friend.id %>">
+    <div class="friends-name">
+      <p><%= friend.name.capitalize %> <br> <%= friend.email %></p>
+    </div>
+    <div  class="edit-button" data-target="<%= friend.id %>">
+      <span class="fas fa-pencil-alt"></span>
+    </div>
   </div>
-  <div  class="edit-button" data-target="<%= friend.id %>">
-    <button class="fas fa-pencil-alt"></button>
+  <div id="<%= friend.id %>" class="friend-edit-form d-none">
+    <%= render "friend_edit", friend: friend %>
   </div>
-</div>
-<div id="<%= friend.id %>" class="d-none">
-  <%= render "friend_edit", friend: friend %>
 </div>

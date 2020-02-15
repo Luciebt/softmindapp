@@ -1,8 +1,28 @@
-<%= render "friend_form", friend: friend %>
-<div class="delete-button">
-  <%= link_to friend_path(friend),
-            method: :delete,
-            data: { confirm: "Are you sure?" } do %>
-            <i class="far fa-trash-alt"> Remove</i>
-            <% end %>
+<div class="edit-form">
+  <%= simple_form_for (friend) do |f| %>
+    <%= f.error_notification %>
+      <div class="inputs-div">
+        <%= f.input :name, :label => false %>
+        <%= f.input :email, :label => false, input_html: { autocomplete: 'email' } %>
+      </div>
+  <%#= f.input :avatar, as: :file, input_html: { accept: User::AVATAR } %>
+      <div class="submit-cancel-buttons">
+        <div>
+          <%= button_tag type: 'submit' do %>
+            <i class="far fa-check-circle"></i>
+          <% end %>
+          <%= button_tag type: 'reset', data: { target: friend.id } do %>
+            <i class="far fa-times-circle"></i>
+          <% end %>
+        </div>
+        <div class="delete-button">
+          <%= link_to friend_path(friend),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                    <i class="far fa-trash-alt"></i>
+                    <% end %>
+        </div>
+      </div>
+  <% end %>
+
 </div>

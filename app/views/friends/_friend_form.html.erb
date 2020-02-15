@@ -1,5 +1,5 @@
 <div class="main-div">
-  <%= simple_form_for (friend) do |f| %>
+  <%= simple_form_for (@friend) do |f| %>
     <%= f.error_notification %>
     <div id="friends-div">
       <div class="inputs-div">
@@ -11,7 +11,7 @@
         <%= button_tag type: 'submit' do %>
           <i class="far fa-check-circle"></i>
         <% end %>
-        <%= button_tag type: 'reset' do %>
+        <%= link_to friends_path do %>
           <i class="far fa-times-circle"></i>
         <% end %>
       </div>

@@ -23,8 +23,9 @@
   border-bottom-width: 1px;
   border-bottom-color: grey;
   border-bottom-style: solid;
-  button {
+  span {
     color: #6b6b6b;
+    cursor: pointer;
   }
 }
 
@@ -38,7 +39,7 @@
 }
 
 .inputs-div {
-  padding: 0 2vh;
+  width: 80vw;
 
   input {
     border-radius: 20px;
@@ -47,27 +48,25 @@
 
 .submit-cancel-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0vh 2vh;
-  border-bottom: 1px solid grey;
-
-  button {
+  a, button {
     background-color: transparent;
     border: 0px;
     font-size: 4.4vh;
+    color: black;
   }
 }
 
 .delete-button {
-  background-color: white;
-  border-radius: 20px;
-  position: absolute;
-  right: 1vh;
-  padding-left: 6px;
-  padding-right: 6px;
-  box-shadow: 4px 4px 4px #888888;
   a {
     color: red;
+    text-align: right;
   }
 }
 
+.friend-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
