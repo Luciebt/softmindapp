@@ -36,14 +36,14 @@
 
             <div id="video-tab" class="unshow">
                 <% @videos.each do |video| %>
-                        <div class="timeline-dates">
-                            <p><%= video.created_at.strftime('%B %Y') %></p>
-                            <br>
-                        </div>
-                <div class="moment-card">
-                            <%= video_tag("#{video.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
-                        </div>
-                        <% end %>
+                    <div class="timeline-dates">
+                        <p><%= video.created_at.strftime('%B %Y') %></p>
+                        <br>
+                    </div>
+                    <div class="moment-card">
+                        <%= video_tag(video.media.url, controls: true, preload: 'true', :class => "moments-media") %>
+                    </div>
+                <% end %>
             </div>
 
             <div id="image-tab" class="unshow">
