@@ -1,4 +1,8 @@
-<h1>Thank you <%= @friend.name %>!   <i class="far fa-smile-beam fa-sm"></i></h1>
+<div class="text">
+<h1>Thank you <%= @friend.name %>!   <i class="far fa-smile-beam fa-sm"></i></h1><br>
+<p><%= User.find(@friend.user_id).first_name.capitalize %> will be very thankful!</p>
 <p>Do you want to upload more media?</p>
-<button class=""><%= link_to "Yes, let's go!", new_moment_url(@friend.authentication_token) %></button>
+<button class="btn"><%= link_to "Yes, let's go!", new_moment_url(@friend.authentication_token) %></button>
+</div>
+
 
