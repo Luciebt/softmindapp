@@ -1,13 +1,13 @@
 <div class="main-div">
   <%= simple_form_for (@friend) do |f| %>
     <%= f.error_notification %>
-    <div id="friends-div">
+    <div class="friend-form">
       <div class="inputs-div">
-        <%= f.input :name, :label => false %>
-        <%= f.input :email, :label => false, input_html: { autocomplete: 'email' } %>
+        <%= f.input :name, :label => false, :placeholder => "Name" %>
+        <%= f.input :email, :label => false, :placeholder => "Email", input_html: { autocomplete: 'email' } %>
       </div>
   <%#= f.input :avatar, as: :file, input_html: { accept: User::AVATAR } %>
-      <div class="submit-cancel-buttons">
+      <div class="submit-cancel-buttons adding-form">
         <%= button_tag type: 'submit' do %>
           <i class="far fa-check-circle"></i>
         <% end %>
