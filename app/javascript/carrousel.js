@@ -9,7 +9,7 @@ function carrouselFct() {
             const lastChild = document.querySelector(".timeline-media:last-child");
 
             if (currentMoment == lastChild) {
-                const firstChild = document.querySelector(".timeline-media:first-child");
+                const firstChild = document.querySelectorAll(".timeline-media")[0];
                 firstChild.classList.add("show-carrousel");
                 firstChild.classList.remove('unshow-carrousel');
             } else {

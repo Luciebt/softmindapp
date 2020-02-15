@@ -1,19 +1,23 @@
 function setup() {
     const moments = document.querySelectorAll(".play-moments-media");
     const firstMoment = document.querySelector(".play-moments-media");
+    let ids = [];
 
     if (firstMoment) {
 
         firstMoment.classList.remove('unshow');
         firstMoment.classList.add('show');
+        ids.push(firstMoment.dataset.id);
 
         const moveShow = (event) => {
             const currentMoment = event.currentTarget;
+            const momentId = event.currentTarget.dataset.id
+            !ids.includes(momentId) && ids.push(momentId);
 
             const lastChild = document.querySelector('.play-moments-media:last-child');
 
             if (currentMoment == lastChild) {
-                const firstChild = document.querySelector('.play-moments-media:first-child');
+                const firstChild = document.querySelectorAll('.play-moments-media')[0];
                 firstChild.classList.add('show');
                 firstChild.classList.remove('unshow');
             } else {
@@ -37,11 +41,26 @@ function setup() {
             moment.addEventListener('click', moveShow);
         });
 
+
     } else {
         console.log("we are in the else - clean");
 
     }
+
+    updateStatus(ids);
 }
 
+
+function updateStatus(ids) {
+    const button = document.querySelector(".play-exit-icon");
+    button.addEventListener('click', event => {
+        event.preventDefault();
+        const hiddenTag = document.querySelector('.input-seen');
+        hiddenTag.value = ids;
+        const form = document.querySelector('.form-seen');
+        form.submit()
+
+    })
+}
 
 export { setup };

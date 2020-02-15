@@ -5,10 +5,10 @@ class MomentsController < ApplicationController
 
       if @friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
 
-      @moments = Moment.where(friend_id: @friend.id)
-      @videos = Moment.where(seen: true, friend_id: @friend.id, media_type: "video")
-      @images = Moment.where(seen: true, friend_id: @friend.id, media_type: "image")
-      @texts = Moment.where(seen: true, friend_id: @friend.id, media: nil)
+        @moments = Moment.where(friend_id: @friend.id)
+        @videos = Moment.where(seen: true, friend_id: @friend.id, media_type: "video")
+        @images = Moment.where(seen: true, friend_id: @friend.id, media_type: "image")
+        @texts = Moment.where(seen: true, friend_id: @friend.id, media: nil)
 
       else
         redirect_to moments_path
@@ -41,6 +41,17 @@ end
     end
   end
 
+  def seen
+    moment_ids = params[:moment_ids]
+    moment_ids.split(',').each do |id|
+      moment = Moment.find(id)
+      moment.update(seen: true)
+    end
+
+    redirect_to moments_path
+
+  end
+
   def success
   end
 
@@ -53,9 +64,6 @@ end
       # Redirect to timeline or special page: You've played all your moments of the day!'
     else
       @moments = @unseen_moments.first(5)
-      @moments.each do |moment|
-        moment.seen = true
-      end
     end
   end
 

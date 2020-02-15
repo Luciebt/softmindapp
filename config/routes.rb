@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get "/play", to: "pages#play", as: :play
+  put "/seen", to: "moments#seen", as: :seen
   get "moments/success", to: "moments#success", as: :moment_success
   get "moments/none", to: "moments#none", as: :moment_none
 
