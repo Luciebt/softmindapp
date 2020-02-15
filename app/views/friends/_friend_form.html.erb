@@ -9,10 +9,10 @@
   <%#= f.input :avatar, as: :file, input_html: { accept: User::AVATAR } %>
       <div class="submit-cancel-buttons adding-form">
         <%= button_tag type: 'submit' do %>
-          <i class="far fa-check-circle"></i>
+          <%= image_tag "accept.png" %>
         <% end %>
         <%= link_to friends_path do %>
-          <i class="far fa-times-circle"></i>
+          <%= image_tag "close.png" %>
         <% end %>
       </div>
     </div>

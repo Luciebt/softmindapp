@@ -9,6 +9,10 @@
   padding-bottom: 20px;
 }
 
+a, p, h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
 #friends-div {
   height: 60vh;
   overflow-y:scroll;
@@ -20,11 +24,9 @@
   display: flex;
   justify-content: space-between;
   margin: 2vh 5vh;
-  border-bottom-width: 1px;
-  border-bottom-color: grey;
-  border-bottom-style: solid;
-  span {
-    color: #6b6b6b;
+  border-bottom: 0.3px solid #D3D7DB;
+  img {
+    height: 1.6em;
     cursor: pointer;
   }
 }
@@ -50,19 +52,23 @@
 .submit-cancel-buttons {
   display: flex;
   justify-content: space-between;
-  margin: 0vh 2vh;
+  margin: -1vh 1vh 1vh 1vh;
   a, button {
     background-color: transparent;
     border: 0px;
     font-size: 4.4vh;
     color: black;
   }
+  img {
+    height: 1em;
+  }
 }
 
 .delete-button {
-  a {
+  img {
     color: red;
     text-align: right;
+    height: 1em;
   }
 }
 
