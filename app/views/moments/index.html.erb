@@ -34,46 +34,46 @@
 
     <div class="cards">
 
-                <div id="video-tab" class="unshow">
-                    <% @videos.each do |video| %>
-                            <div class="timeline-dates">
-                                <p><%= video.created_at.strftime('%B %Y') %></p>
-                                <br>
-                            </div>
-                    <div class="moment-card">
-                                <%= video_tag("#{video.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
-                            </div>
-                            <% end %>
-                </div>
-
-                <div id="image-tab" class="unshow">
-                    <% @images.each do |image| %>
-                            <div class="timeline-dates">
-                                <p><%= image.created_at.strftime('%B %Y') %></p>
-                                <br>
-                            </div>
-                            <div class="moment-card">
-                                <%= link_to (cl_image_tag image.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(image) %>
-                            </div>
+            <div id="video-tab" class="unshow">
+                <% @videos.each do |video| %>
+                        <div class="timeline-dates">
+                            <p><%= video.created_at.strftime('%B %Y') %></p>
+                            <br>
+                        </div>
+                <div class="moment-card">
+                            <%= video_tag("#{video.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+                        </div>
                         <% end %>
+            </div>
+
+            <div id="image-tab" class="unshow">
+                <% @images.each do |image| %>
+                        <div class="timeline-dates">
+                            <p><%= image.created_at.strftime('%B %Y') %></p>
+                            <br>
+                        </div>
+                        <div class="moment-card">
+                            <%= link_to (cl_image_tag image.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(image) %>
+                        </div>
+                    <% end %>
+            </div>
+
+            <div id="text-tab" class="unshow">
+            <% @texts.each do |text| %>
+                <div class="timeline-dates">
+                    <p><%= text.created_at.strftime('%B %Y') %></p>
+                    <br>
                 </div>
 
-                <div id="text-tab" class="unshow">
-                <% @texts.each do |text| %>
-                    <div class="timeline-dates">
-                        <p><%= text.created_at.strftime('%B %Y') %></p>
-                        <br>
-                    </div>
-
-                <div class="card-category">
-                    <div class="moment-card">
-                        <p><%= text.text_content %></p>
-                    </div>
-                <% end %>
+            <div class="card-category">
+                <div class="moment-card">
+                    <p><%= text.text_content %></p>
                 </div>
-                </div>
-        </div>
             <% end %>
+            </div>
+        </div>
+    </div>
+        <% end %>
     </div>
 
     <div class="timeline-moment-list" id="default-index"></div>

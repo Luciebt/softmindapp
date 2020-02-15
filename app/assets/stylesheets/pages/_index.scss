@@ -3,13 +3,13 @@
 @import "cards";
 
 .index-container {
-    padding: 2.6em;
+  padding: 2.6em;
 }
 
 .timeline-feed {
-    padding: .2em;
-    margin-left: 10px;
-    margin-right:10px;
+  padding: .2em;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .timeline-dates {
@@ -17,40 +17,54 @@
 }
 
 .moment-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
 
-    a {
-        img {
-            margin: 1em !important;
-        }
+
+  a {
+    img {
+      margin: 1em !important;
     }
+  }
+}
+
+.moment-media {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  margin: 2em;
+  object-fit: cover;
+
 }
 
 .moment-text-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    text-align: center;
-    background-color: white;
-    margin-left: 2.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  background-color: white;
+  margin-left: 2.6em;
 
 
-    a {
-        img {
-            margin: 1em !important;
-        }
+  a {
+    img {
+      margin: 1em !important;
     }
+  }
 }
 
 .timeline-title {
+  h1 {
+
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+  }
 }
 
 .btn-light {
@@ -72,7 +86,7 @@
   background: white;
   border-radius: 5px;
   margin: 10px auto;
-  box-shadow: rgba(0,0,0,.172549) 0 6px 12px 0;
+  box-shadow: rgba(0, 0, 0, .172549) 0 6px 12px 0;
   cursor: pointer;
   width: 400px;
   height: 55px;
@@ -88,6 +102,7 @@
     }
   }
 }
+
 .search {
   margin-top: 5px;
   display: flex;
@@ -129,7 +144,8 @@
   margin-top: .2em;
   font-family: 'Roboto', sans-serif;
 
-  a:hover, button:hover {
+  a:hover,
+  button:hover {
     color: white;
     background-color: black;
   }
