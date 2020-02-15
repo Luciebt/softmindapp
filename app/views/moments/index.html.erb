@@ -62,8 +62,12 @@
                         <p><%= text.created_at.strftime('%B %Y') %></p>
                         <br>
                     </div>
-                        <p><%= moment.text_content %></p>
-                    <% end %>
+
+                    <div class="moment-card">
+                        <p><%= text.text_content %></p>
+                    </div>
+                <% end %>
+
                 </div>
 
             <% end %>
