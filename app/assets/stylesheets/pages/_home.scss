@@ -2,6 +2,7 @@ body {
   background-image: url("https://i.ibb.co/wLGMFrB/Screen-Shot-2020-02-11-at-20-44-24.png");
   background-repeat: no-repeat;
   background-size: 100%;
+  background-attachment: fixed;
 };
 
 .home-container {
@@ -10,9 +11,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    border-bottom: 45px solid white;
 }
+
+body {
+  background-image: url("https://i.ibb.co/wLGMFrB/Screen-Shot-2020-02-11-at-20-44-24.png");
+  background-position: bottom;
+  margin-bottom: 70px;
+}
+
 .logo-placement {
   position: fixed;
   top: 87px;
