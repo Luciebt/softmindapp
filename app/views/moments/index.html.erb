@@ -2,6 +2,8 @@
 
 <div class="index-container">
 
+<body>
+  <div class="index-container">
     <h1 class="timeline-title">Timeline</h1>
 
         <div class="search">
@@ -65,7 +67,11 @@
                         <p><%= text.created_at.strftime('%B %Y') %></p>
                         <br>
                     </div>
-
+                        <p><%= moment.text_content %></p>
+                    <% end %>
+            </div>
+            <% end %>
+        </div>
                     <div class="moment-card">
                         <p><%= text.text_content %></p>
                     </div>
@@ -96,3 +102,4 @@
     </div>
     </div>
 </div>
+</body>
