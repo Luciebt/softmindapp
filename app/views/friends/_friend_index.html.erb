@@ -2,7 +2,10 @@
   <div class="friends-name">
     <p><%= friend.name.capitalize %> <br> <%= friend.email %></p>
   </div>
-  <div class="edit-button">
-    <%= link_to "", edit_friend_path(friend), :class=>"fas fa-pencil-alt" %>
+  <div  class="edit-button" data-target="<%= friend.id %>">
+    <button class="fas fa-pencil-alt"></button>
   </div>
+</div>
+<div id="<%= friend.id %>" class="d-none">
+  <%= render "friend_edit", friend: friend %>
 </div>
