@@ -7,3 +7,40 @@
     text-align: left;
     font-family:Roboto;
 }
+
+.center {
+  margin-left:100px;
+  color: #4E67B7 !important;
+}
+
+h1 {
+font-size: 150%;
+}
+
+
+.btn {
+  width: 160px;
+  height: 40px;
+  cursor: pointer;
+  background: #4E67B7;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+  text: white;
+  margin-left: 60px;
+}
+
+.btn:hover {
+  background-color: white !important;
+  color: #4E67B7 !important;
+  }
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
