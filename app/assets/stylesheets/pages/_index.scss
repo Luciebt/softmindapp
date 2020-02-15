@@ -10,7 +10,10 @@
     padding: .2em;
     margin-left: 10px;
     margin-right:10px;
+}
 
+.timeline-dates {
+  margin-left: 2.6em;
 }
 
 .moment-card {
@@ -20,6 +23,7 @@
     justify-content: center;
     height: auto;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 
     a {
         img {
@@ -36,6 +40,7 @@
     height: auto;
     text-align: center;
     background-color: white;
+    margin-left: 2.6em;
 
 
     a {
@@ -46,7 +51,14 @@
 }
 
 .timeline-title {
-    border-bottom: 6px solid $yellow;
+}
+
+.btn-light {
+  background: white;
+  opacity: 50%;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: black;
 }
 
 .head-text {
@@ -115,6 +127,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: .2em;
+  font-family: 'Roboto', sans-serif;
 
   a:hover, button:hover {
     color: white;
