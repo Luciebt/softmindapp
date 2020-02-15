@@ -1,8 +1,10 @@
 <div id="play-container" class="play-bg-gradient">
 
-    <%= link_to moments_path do %>
-    <i class="play-exit-icon fas fa-times"></i>
+    <%= form_for( 'moments_seen', remote: true, method: 'put', url: seen_path, html: {class: "form-seen"}, authenticity_token: true) do |f| %>
+        <input type="hidden" name="moment_ids" value="" class="input-seen">
+        <i class="play-exit-icon fas fa-times"></i>
     <% end %>
+
 
         <% @moments.each do |moment| %>
 
@@ -10,7 +12,7 @@
 
                 <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
 
-                    <div class="play-moments-media unshow">
+                    <div class="play-moments-media unshow" data-id="<%= moment.id %>">
 
                             <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', size: "16x16", :class => "moments-video moments-media") %>
 
@@ -22,7 +24,7 @@
                     <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
 
 
-                        <div class="play-moments-media unshow">
+                        <div class="play-moments-media unshow" data-id="<%= moment.id %>">
                             <%= (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media") %></p>
                             <div class="text-box">
                                 <p><%= moment.text_content %></p>

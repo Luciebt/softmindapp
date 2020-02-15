@@ -5,10 +5,10 @@ class MomentsController < ApplicationController
 
       if @friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
 
-      @moments = Moment.where(friend_id: @friend.id)
-      @videos = Moment.where(seen: false, friend_id: @friend.id, media_type: "video")
-      @images = Moment.where(seen: false, friend_id: @friend.id, media_type: "image")
-      @texts = Moment.where(seen: false, friend_id: @friend.id, media: nil)
+        @moments = Moment.where(friend_id: @friend.id)
+        @videos = Moment.where(seen: true, friend_id: @friend.id, media_type: "video")
+        @images = Moment.where(seen: true, friend_id: @friend.id, media_type: "image")
+        @texts = Moment.where(seen: true, friend_id: @friend.id, media: nil)
 
       else
         redirect_to moments_path
@@ -16,10 +16,10 @@ class MomentsController < ApplicationController
     # elsif params[:filter_by].present?
     #   @moments = Moment.where(friend_id: params[:filter_by])
     else
-      @moments = Moment.where(seen: false).order(created_at: :asc)
-      @videos = Moment.where(seen: false, media_type: "video")
-      @images = Moment.where(seen: false, media_type: "image")
-      @texts = Moment.where(seen: false, media: nil)
+      @moments = Moment.where(seen: true).order(created_at: :asc)
+      @videos = Moment.where(seen: true, media_type: "video")
+      @images = Moment.where(seen: true, media_type: "image")
+      @texts = Moment.where(seen: true, media: nil)
 
   end
 end
@@ -41,6 +41,17 @@ end
     end
   end
 
+  def seen
+    moment_ids = params[:moment_ids]
+    moment_ids.split(',').each do |id|
+      moment = Moment.find(id)
+      moment.update(seen: true)
+    end
+
+    redirect_to moments_path
+
+  end
+
   def success
   end
 
@@ -53,31 +64,11 @@ end
       # Redirect to timeline or special page: You've played all your moments of the day!'
     else
       @moments = @unseen_moments.first(5)
-      # show - @moments, all moments to show here, display all of them in HTML but with display: none (CSS),
-      # a faire tourner avec JS.
-      # todo: JS change moment to seen status
-      # todo: JS Timer logic
-      # timer for the day - create a job that runs at midnight,
-      # reseting the user.time_left_today - script executed by heroku at time
-      # timer for the show 5mn - time left today - JS (event listener if he closes windows),
-      # Ajax request, update user model (time left)
-      # timer running out - JS - update user model (time left)
     end
   end
-  # to do: javascript, to change moment to seen status
-  # todo: add time_left_today to user (migration)
-
-  # show - @moments, all moments to show here,
-  # display all of them in HTML but with display: none (CSS), faie tourner avec JS.
-  # unseen
-  # timer for the day - create a job that runs at midnight,
-  # reseting the user.time_left_today - script executed by heroku at time
-  # timer for the show 5mn - time left today - JS (event listener if he closes windows),
-  # Ajax request, update user model (time left)
-  # timer running out - JS - update user model (time left)
 
   def carrousel
-    @moments = Moment.where(seen: false, user: current_user)
+    @moments = Moment.where(seen: true, user: current_user)
     @moment = Moment.find(params[:moment_id])
   end
 
@@ -96,10 +87,5 @@ end
   def moments_params
     params.require(:moment).permit(:text_content, :media, :user_id, :friend_id, :seen)
   end
-
-  def fetching_moments
-
-  end
-
 
 end
