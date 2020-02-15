@@ -50,20 +50,23 @@ const sortingOut = () => {
         textContent.classList.add("show");
     })
 
-    all.addEventListener('click', function() {
+    if (all) {
 
-        videoContent.classList.remove("show");
-        videoContent.classList.add("unshow");
+        all.addEventListener('click', function() {
 
-        imageContent.classList.remove("show");
-        imageContent.classList.add("unshow");
+            videoContent.classList.remove("show");
+            videoContent.classList.add("unshow");
 
-        textContent.classList.remove("show");
-        textContent.classList.add("unshow");
+            imageContent.classList.remove("show");
+            imageContent.classList.add("unshow");
 
-        indexTimeline.classList.remove("unshow");
-        indexTimeline.classList.add("show");
-    })
+            textContent.classList.remove("show");
+            textContent.classList.add("unshow");
+
+            indexTimeline.classList.remove("unshow");
+            indexTimeline.classList.add("show");
+        })
+    }
 
 }
 
