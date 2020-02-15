@@ -1,5 +1,5 @@
 <div class="card-white">
-  <h1>Hey <%= @friend.name.capitalize %>!</h1>
+  <h1>Hey <%= @friend.name %>!</h1>
   <p> Welcome to softmind.app!</p>
   <%= simple_form_for @moment do |f| %>
     <div class=“user-name”>
@@ -7,7 +7,7 @@
     </div><br>
     <div class="add-photos">
       <h6><strong>Upload something of value to <%= User.find(@friend.user_id).first_name.capitalize %> — a photo, video, audio, a few words etc. </strong></h6>
-    Something that will make them smile!
+    Something that will make them smile.
     </div><br>
       <%= f.input :media, :multiple => true, label: "Add media" %>
       <%= f.input :media_cache, as: :hidden %>

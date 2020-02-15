@@ -1,0 +1,33 @@
+.text {
+  padding-top: 100px;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  position: fixed;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: #4E67B7;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+  text: white;
+}
+
+.btn:hover {
+  background-color: white !important;
+  color: #4E67B7 !important;
+  }
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
