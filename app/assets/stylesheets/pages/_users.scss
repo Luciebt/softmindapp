@@ -1,25 +1,28 @@
 .users-name {
   display: flex;
-  justify-content: space-around;
-  margin-top: 12em;
+  justify-content: center;
+  margin-top: 11em;
   color: white;
+  h2 {
+    text-align: center;
+  }
 }
 
 .log-out {
   display: flex;
   justify-content: flex-end;
   margin-right: 1em;
+  margin-top: 1em;
 }
 
 #profile-menu {
   background-color: white;
   position: fixed;
-  bottom: 55px;
+  bottom: 85px;
   width: 100vw;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 ul {

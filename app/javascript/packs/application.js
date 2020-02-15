@@ -7,5 +7,5 @@ import { sortingOut } from '../sort_out_buttons';
 
 setup();
 carrouselFct();
-sortingOut();
 friendsEditToggle();
+sortingOut();
