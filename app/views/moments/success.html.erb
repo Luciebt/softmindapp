@@ -1,1 +1,4 @@
-<h1>Thank you!</h1>
+<h1>Thank you <%= @friend.name %>!   <i class="far fa-smile-beam fa-sm"></i></h1>
+<p>Do you want to upload more media?</p>
+<button class=""><%= link_to "Yes, let's go!", new_moment_url(@friend.authentication_token) %></button>
+
