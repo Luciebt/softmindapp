@@ -1,3 +1,6 @@
+<%= render 'shared/navbar' %>
+
+<div class="index-container">
 
 <body>
   <div class="index-container">
@@ -15,47 +18,88 @@
           </div>
         </div>
 
-        <div class="timeline-feed">
+        <div id="button-box">
+            <%= link_to  "All", moments_path, :class => "btn btn-light" %>
+            <button type="button" class="btn btn-light" id="all-button">All</button>
+            <button type="button" class="btn btn-light" id="video-button">Video</button>
+            <button type="button" class="btn btn-light" id="image-button">Image</button>
+            <button type="button" class="btn btn-light" id="text-button">Words</button>
+        </div>
 
-            <% @moments.each do |year_and_month, moments| %>
+    <div class="timeline-feed">
 
-                <div class="timeline-dates">
-                    <h2><%= year_and_month %></h2>
+        <% @moments.each do |moment| %>
+            <% if moment == nil? %>
+                    <p>"not enough data"</p>
+
+            <% else %>
+
+                <div id="video-tab" class="unshow">
+                    <% @videos.each do |video| %>
+                        <div class="timeline-dates">
+                            <p><%= video.created_at.strftime('%B %Y') %></p>
+                            <br>
+                        </div>
+
+                        <div class="moment-card">
+                            <%= video_tag("#{video.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+                        </div>
+                    <% end %>
                 </div>
 
-                <div class="timeline-moment-list">
+                <div id="image-tab" class="unshow">
+                <% @images.each do |image| %>
 
-                    <% moments.each do |moment| %>
+                    <div class="timeline-dates">
+                        <p><%= image.created_at.strftime('%B %Y') %></p>
+                        <br>
+                    </div>
+                    <div class="moment-card">
+                        <%= link_to (cl_image_tag image.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(image) %>
+                    </div>
+                <% end %>
+                </div>
 
-                    <hr>
+                <div id="text-tab" class="unshow">
+                <% @texts.each do |text| %>
 
-                        <% if moment.media.present? %>
-
-                            <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
-                                <div class="moment-card">
-                                    <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
-
-                                </div>
-
-                                <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
-
-                                    <div class="moment-card">
-                                        <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(moment) %>
-                                    </div>
-
-                                <% elsif Moment::AUDIO_TYPES.include?(moment.media.file.format) %>
-
-                                    <div class="moment-card">
-                                        <p>Audio file TODO: How to display AUDIO?</p>
-                                    </div>
-
-                                <% end %>
-                        <% end %>
-
+                    <div class="timeline-dates">
+                        <p><%= text.created_at.strftime('%B %Y') %></p>
+                        <br>
+                    </div>
                         <p><%= moment.text_content %></p>
                     <% end %>
             </div>
             <% end %>
         </div>
+                    <div class="moment-card">
+                        <p><%= text.text_content %></p>
+                    </div>
+                <% end %>
+                </div>
+
+                <div class="timeline-moment-list" id="default-index">
+
+                    <div class="timeline-dates">
+                        <p><%= moment.created_at.strftime('%B %Y') %></p>
+                        <br>
+                    </div>
+
+                <% if moment.media_type == "video" %>
+                    <div class="moment-card">
+                        <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+                    </div>
+
+                 <% elsif moment.media_type == "image" %>
+                    <div class="moment-card">
+                        <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(moment) %>
+                    </div>
+                <% end %>
+
+                    <p><%= moment.text_content %></p>
+        <% end %>
+    <% end %>
+    </div>
+    </div>
 </div>
 </body>

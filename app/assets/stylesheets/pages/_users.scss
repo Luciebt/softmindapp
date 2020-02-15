@@ -58,3 +58,14 @@ a:active {
   color: black;
   text-decoration: none;
 }
+
+.profile-edit-container {
+  height: 80vh;
+  overflow-y:scroll;
+  display: flex;
+  flex-direction: column;
+  margin: 0vh 2vh;
+  input {
+    border-radius: 20px;
+  }
+}

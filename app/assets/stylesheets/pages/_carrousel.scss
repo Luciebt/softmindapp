@@ -1,9 +1,18 @@
-.show-carrousel {}
+.show-carrousel {
+    display: flex;
+}
 
 .unshow-carrousel {
     display: none;
 }
 
 .timeline-moments-media {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    height: 90%;
+    text-align: center;
+    padding-top: 8%;
+    padding-bottom: 17%;
 }
