@@ -4,13 +4,10 @@
 
 .index-container {
   padding: 2em;
-  margin: .6em;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-#top-container {}
 
 #button-box {
   display: flex;
@@ -21,14 +18,14 @@
 }
 
 .moment-button {
-    border: none !important;
-    padding: .4em .7em;
-    background-color: white !important;
-    margin: 0 0.25rem;
-    height: 2.5rem !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  border: none !important;
+  padding: .4em .7em;
+  background-color: white !important;
+  margin: 0 0.25rem;
+  height: 2.5rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:first-child {
     margin-left: 0;
@@ -42,21 +39,27 @@
 
 .timeline-title {
   h1 {
-
     font-size: 22px;
     text-align: center;
     font-weight: bold;
   }
 }
 
-.timeline-dates {
-  margin-left: 2.6em;
-}
+.timeline-dates {}
 
 .timeline-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+#timeline-container-default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
   flex-wrap: wrap;
 }
 
@@ -84,7 +87,11 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-.moment-media {}
+.moment-media {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
 
 .moment-text-card {
   display: flex;

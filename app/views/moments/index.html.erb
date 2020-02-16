@@ -20,7 +20,7 @@
                 <button type="button" class="moment-button" id="text-button">Words</button>
             </div>
     </div>
-    <div class="timeline-container">
+    <div class="timeline-container" id="secondary-tabs">
         <% @moments.each do |moment| %>
             <% if moment == nil? %>
                 <p>"not enough data"</p>
@@ -63,28 +63,30 @@
                 </div>
         </div>
             <% end %>
+        <% end %>
     </div>
 
-    <div class="timeline-container" id="default-index">
-        <div class="timeline-dates">
-            <h3><%= moment.created_at.strftime('%B %Y') %></h3>
-            <br>
+<div id="timeline-container-default">
+    <% @moments.each do |moment| %>
+    <div class="timeline-dates default-index">
+        <h3><%= moment.created_at.strftime('%B %Y') %></h3>
+        <br>
+    </div>
+    <% if moment.media_type == "video" %>
+        <div class="moment-card default-index">
+            <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+            <p class="text-content"><%= moment.text_content %></p>
         </div>
-        <% if moment.media_type == "video" %>
-            <div class="moment-card">
-                <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
-                <p class="text-content"><%= moment.text_content %></p>
-            </div>
-        <% elsif moment.media_type == "image" %>
-            <div class="moment-card">
-                <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(moment) %>
-                <p class="text-content"><%= moment.text_content %></p>
-            </div>
-        <% else moment.media == nil %>
-            <div class="moment-card">
-                <p class="text-content"><%= moment.text_content %></p>
-            </div>
+    <% elsif moment.media_type == "image" %>
+        <div class="moment-card default-index">
+            <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(moment) %>
+            <p class="text-content"><%= moment.text_content %></p>
+        </div>
+    <% else moment.media == nil %>
+        <div class="moment-card default-index">
+            <p class="text-content"><%= moment.text_content %></p>
+        </div>
         <% end %>
     <% end %>
-    </div>
+</div>
 </div>

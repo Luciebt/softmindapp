@@ -5,57 +5,89 @@ const sortingOut = () => {
     const texts = document.getElementById('text-button');
     const all = document.getElementById('all-button');
 
-    const indexTimeline = document.getElementById("default-index");
+    const indexTimeline = document.getElementById("timeline-container-default");
+    const defaultIndex = document.querySelectorAll("default-index");
     const videoContent = document.getElementById('video-tab');
     const imageContent = document.getElementById('image-tab');
     const textContent = document.getElementById('text-tab');
+    const secondaryTabs = document.getElementById('secondary-tabs');
 
-    function removeShow(content) {
+    function show(content) {
+        console.log(content);
+
+        content.classList.remove("unshow");
+        content.classList.add("show");
+    }
+
+    function unshow(content) {
+        console.log(content);
+
         content.classList.add("unshow");
         content.classList.remove("show");
     }
 
-    function addShow(content) {
-        content.classList.add("show");
-        content.classList.remove("unshow");
+    function removeIndex(index) {
+        index.forEach((moment) => {
+            console.log(index);
+
+            moment.classList.remove("show");
+            moment.classList.add("unshow");
+        })
     }
+
+    function addIndex(index) {
+        index.forEach((moment) => {
+            console.log(index);
+
+            moment.classList.remove("unshow");
+            moment.classList.add("show");
+        })
+    }
+
 
     videos.addEventListener('click', function() {
         console.log("videos");
 
-        removeShow(indexTimeline);
-        removeShow(imageContent);
-        removeShow(textContent);
-        addShow(videoContent);
+        show(secondaryTabs);
+        show(videoContent);
+        unshow(indexTimeline);
+        removeIndex(defaultIndex);
+        unshow(imageContent);
+        unshow(textContent);
 
     })
 
     images.addEventListener('click', function() {
         console.log('images');
 
-        removeShow(indexTimeline);
-        removeShow(videoContent);
-        removeShow(textContent);
-        addShow(imageContent);
+        show(secondaryTabs);
+        removeIndex(defaultIndex);
+        unshow(indexTimeline);
+        unshow(videoContent);
+        unshow(textContent);
+        show(imageContent);
 
     })
 
     texts.addEventListener('click', function() {
         console.log('texts');
 
-        removeShow(indexTimeline);
-        removeShow(videoContent);
-        removeShow(imageContent);
-        addShow(textContent);
+        show(secondaryTabs);
+        removeIndex(defaultIndex);
+        unshow(indexTimeline);
+        unshow(videoContent);
+        unshow(imageContent);
+        show(textContent);
     })
 
     all.addEventListener('click', function() {
         console.log('all');
 
-        removeShow(videoContent);
-        removeShow(imageContent);
-        removeShow(textContent);
-        addShow(indexTimeline);
+        unshow(secondaryTabs);
+        unshow(videoContent);
+        unshow(imageContent);
+        unshow(textContent);
+        addIndex(defaultIndex);
 
     })
 }
