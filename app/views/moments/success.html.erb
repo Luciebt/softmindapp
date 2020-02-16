@@ -1,7 +1,8 @@
 <div class="card text">
-  <h1>Thank you <%= @friend.name %>!   <i class="far fa-smile-beam fa-sm"></i></h1><br>
-    <p><%= User.find(@friend.user_id).first_name.capitalize %> will be very thankful!</p>
-    <p>Do you want to upload more media?</p><br>
+  <h1>Thank you <br><%= @friend.name %>! </h1><br><br>
+    <i class="center1 fas fa-check-circle fa-5x"></i><br><br><br>
+    <p><%= User.find(@friend.user_id).first_name.capitalize %> will be very thankful!<br>
+          Do you want to upload more media?</p><br>
       <button class="btn"><%= link_to "Yes, let's go!", new_moment_url(@friend.authentication_token) %></button>
 </div>
 
