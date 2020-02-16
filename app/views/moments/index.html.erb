@@ -1,28 +1,25 @@
 <%= render 'shared/navbar' %>
 
 <div class="index-container">
-    <h1 class="timeline-title">Timeline</h1>
-       <div class="search">
-          <%= form_tag moments_path, method: :get, class: "simple-form" do %>
-          <%= text_field_tag :query,
-            params[:query],
-            placeholder: "Try searching for 'Nemo'",
-            class: "here"
-          %>
-            <%= submit_tag "Search", class: "btn-flat" %>
-          <% end %>
-        </div>
-        <div id="button-box">
-            <%
-=begin%>
- <%= link_to  "All", moments_path, :class => "btn btn-light all-button moment-button" %>
-<%
-=end%>
-            <button type="button" class="btn btn-light moment-button" id="all-button">All</button>
-            <button type="button" class="btn btn-light moment-button" id="video-button">Video</button>
-            <button type="button" class="btn btn-light moment-button" id="image-button">Image</button>
-            <button type="button" class="btn btn-light moment-button" id="text-button">Words</button>
-        </div>
+    <div id="top-container">
+        <h1 class="timeline-title">Timeline</h1>
+        <div class="search">
+            <%= form_tag moments_path, method: :get, class: "simple-form" do %>
+            <%= text_field_tag :query,
+                params[:query],
+                placeholder: "Try searching for 'Nemo'",
+                class: "here"
+            %>
+                <%= submit_tag "Search", class: "btn-flat" %>
+            <% end %>
+            </div>
+            <div id="button-box">
+                <button type="button" class="moment-button" id="all-button">All</button>
+                <button type="button" class="moment-button" id="video-button">Video</button>
+                <button type="button" class="moment-button" id="image-button">Image</button>
+                <button type="button" class="moment-button" id="text-button">Words</button>
+            </div>
+    </div>
     <div class="timeline-container">
         <% @moments.each do |moment| %>
             <% if moment == nil? %>
