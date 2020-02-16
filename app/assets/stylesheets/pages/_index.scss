@@ -3,10 +3,7 @@
 @import "cards";
 
 .index-container {
-  padding: 2em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 1.4em;
 }
 
 #button-box {
@@ -15,6 +12,10 @@
   justify-content: space-between;
   margin-top: .2em;
   font-family: 'Roboto', sans-serif;
+}
+
+#top-container {
+  margin: .8em;
 }
 
 .moment-button {
@@ -37,6 +38,7 @@
 
 }
 
+
 .timeline-title {
   h1 {
     font-size: 22px;
@@ -57,25 +59,31 @@
 
 #timeline-container-default {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+  flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.media {
+  max-width: 100px;
+  width: auto;
+  height: 100px;
+  margin: .6em;
 }
 
 .moment-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: auto;
-  text-align: center;
   font-family: 'Roboto', sans-serif;
-
 
   a {
     img {
-      margin: 1em !important;
+      &:hover {
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+      }
     }
   }
 }
@@ -83,8 +91,9 @@
 .text-content {
   padding: 1em;
   margin: .2em;
-  width: 30vh;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  width: auto;
+  position: relative;
+  flex-wrap: wrap;
 }
 
 .moment-media {
@@ -188,4 +197,11 @@
 
 .flexbox {
   display: flex;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: ". . ."". . .";
 }
