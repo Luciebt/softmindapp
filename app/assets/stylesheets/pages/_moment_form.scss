@@ -9,7 +9,7 @@
 }
 
 .center {
-  margin-left:100px;
+  margin-left:110px;
   color: #4E67B7 !important;
 }
 
@@ -43,4 +43,22 @@ font-size: 36px;
   color: white;
   font-size: 18px;
   font-weight: 100;
+}
+
+.mediaStyling {
+  width: 160px;
+  height: 40px;
+  cursor: pointer;
+  background: #4E67B7;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+  text: white;
+  margin-left: 60px;
+  vertical-align: middle;
+}
+
+.white {
+  color: white !important;
+  margin-left: -8px;
 }
