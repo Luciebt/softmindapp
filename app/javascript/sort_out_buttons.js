@@ -58,7 +58,6 @@ const sortingOut = () => {
         addShow(indexTimeline);
 
     })
-
 }
 
 export { sortingOut };

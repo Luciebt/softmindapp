@@ -5,7 +5,7 @@
   <body>
     <div class="container">
       <div id="card-white">
-        <h1>Hey <%= @friend.name.capitalize %>! Welcome to softmind.app.</h1>
+        <h1>Hey <%= @friend.name %>! Welcome to softmind.app.</h1>
           <p>
              Your friend <%= User.find(@friend.user_id).first_name %> has added you to a trusted list of friends.
               Use the following link to send <%= User.find(@friend.user_id).first_name %> a video/picture/message of encouragement and mental support.<br>
