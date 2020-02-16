@@ -4,16 +4,18 @@
 
 .index-container {
   padding: 2.6em;
+  margin: .6em;
 }
 
-.timeline-feed {
-  padding: .2em;
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
 .timeline-dates {
   margin-left: 2.6em;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .moment-card {
@@ -33,10 +35,15 @@
   }
 }
 
-.moment-media {
+.text-content {
+  padding: 1em;
+  margin: .2em;
+  width: 30vh;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  margin: 2em;
-  object-fit: cover;
+}
+
+.moment-media {
+
 
 }
 
@@ -67,13 +74,39 @@
   }
 }
 
-.btn-light {
+.timeline-button {
   background: white;
   opacity: 50%;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   color: black;
+  padding: .2em;
 }
+
+.moment-button {
+  border: none !important;
+  background-color: white !important;
+  margin: 0 0.25rem;
+  height: 2.5rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// .all-button {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
 
 .head-text {
   color: #3e4149;
