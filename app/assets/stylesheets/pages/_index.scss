@@ -35,10 +35,15 @@
   }
 }
 
-.moment-media {
+.text-content {
+  padding: 1em;
+  margin: .2em;
+  width: 30vh;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  margin: 2em;
-  object-fit: cover;
+}
+
+.moment-media {
+
 
 }
 

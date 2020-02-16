@@ -69,29 +69,25 @@
     </div>
 
     <div class="timeline-container" id="default-index">
-
         <div class="timeline-dates">
-            <p><%= moment.created_at.strftime('%B %Y') %></p>
+            <h3><%= moment.created_at.strftime('%B %Y') %></h3>
             <br>
         </div>
-
         <% if moment.media_type == "video" %>
             <div class="moment-card">
                 <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :class => "moments-media") %>
+                <p class="text-content"><%= moment.text_content %></p>
             </div>
-
         <% elsif moment.media_type == "image" %>
             <div class="moment-card">
                 <%= link_to (cl_image_tag moment.media, :transformation => { :width => 300, :crop => "pad" }, :class => "moments-media"), moment_carrousel_path(moment) %>
+                <p class="text-content"><%= moment.text_content %></p>
             </div>
-
         <% else moment.media == nil %>
             <div class="moment-card">
-                <p><%= moment.text_content %></p>
+                <p class="text-content"><%= moment.text_content %></p>
             </div>
         <% end %>
-
-        <p><%= moment.text_content %></p>
     <% end %>
     </div>
 </div>
