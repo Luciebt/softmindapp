@@ -87,6 +87,7 @@ const sortingOut = () => {
         unshow(videoContent);
         unshow(imageContent);
         unshow(textContent);
+        show(indexTimeline);
         addIndex(defaultIndex);
 
     })
