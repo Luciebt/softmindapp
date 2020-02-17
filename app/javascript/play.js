@@ -20,12 +20,17 @@ function setup() {
 
             if (currentMoment == lastChild) {
                 const firstChild = document.querySelectorAll('.play-moments-media')[0];
-                firstChild.classList.add('show');
-                firstChild.classList.remove('unshow');
+                if (firstChild) {
+                    firstChild.classList.add('show');
+                    firstChild.classList.remove('unshow');
+                }
             } else {
                 const nextSibling = document.querySelector('.show + .unshow')
-                nextSibling.classList.add('show');
-                nextSibling.classList.remove('unshow');
+                if (nextSibling) {
+
+                    nextSibling.classList.add('show');
+                    nextSibling.classList.remove('unshow');
+                }
             }
 
             currentMoment.classList.remove('show');
@@ -61,9 +66,13 @@ function updateStatus(ids) {
             button2.addEventListener('click', event => {
                 event.preventDefault()
                 const hiddenTag = document.querySelector('.input-seen')
-            hiddenTag.value = ids
+                if (hiddenTag) {
+                    hiddenTag.value = ids
+                }
             const form = document.querySelector('.form-seen')
-            form.submit()
+            if (form) {
+                form.submit()
+            }
         })
     }
 }
