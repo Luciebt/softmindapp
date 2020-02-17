@@ -5,39 +5,26 @@
         <i class="play-exit-icon fas fa-times"></i>
     <% end %>
 
+    <% @moments.each do |moment| %>
+        <% if moment.media.present? %>
 
-        <% @moments.each do |moment| %>
-
-            <% if moment.media.present? %>
-
-                <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
-
-                    <div class="play-moments-media unshow" data-id="<%= moment.id %>">
-
-                            <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', size: "16x16", :class => "moments-video moments-media") %>
-
-                        <div class="text-box">
-                            <p><%= moment.text_content %></p>
-                        </div>
+            <% if Moment::VIDEO_TYPES.include?(moment.media.file.format) %>
+                <div class="play-moments-media unshow" data-id="<%= moment.id %>">
+                        <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', size: "16x16", :class => "moments-video moments-media") %>
+                    <div class="text-box">
+                        <p><%= moment.text_content %></p>
                     </div>
-
-                    <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
-
-
-                        <div class="play-moments-media unshow" data-id="<%= moment.id %>">
-                            <%= (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media") %></p>
-                            <div class="text-box">
-                                <p><%= moment.text_content %></p>
-                            </div>
-                        </div>
-
-                    <% end %>
-
-                <% else %>
-                    <p>PRINT TEXT CONTENT BEAUTIFULLY</p>
-
-                <% end %>
-
+                </div>
+            <% elsif Moment::IMG_TYPES.include?(moment.media.file.format) %>
+                <div class="play-moments-media unshow" data-id="<%= moment.id %>">
+                    <%= (cl_image_tag moment.media, :fetch_format=>:auto, :crop=>"mfit", :gravity=>"faces", :class => "moments-media") %></p>
+                    <div class="text-box">
+                        <p><%= moment.text_content %></p>
+                    </div>
+                </div>
             <% end %>
-
+        <% else %>
+            <p><%= moment.text_content %></p>
+        <% end %>
+    <% end %>
 </div>

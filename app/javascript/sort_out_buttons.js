@@ -44,53 +44,65 @@ const sortingOut = () => {
         })
     }
 
+    if (videos) {
 
-    videos.addEventListener('click', function() {
-        console.log("videos");
+        videos.addEventListener('click', function() {
+            console.log("videos");
 
-        show(secondaryTabs);
-        show(videoContent);
-        unshow(indexTimeline);
-        removeIndex(defaultIndex);
-        unshow(imageContent);
-        unshow(textContent);
+            show(secondaryTabs);
+            show(videoContent);
+            unshow(indexTimeline);
+            removeIndex(defaultIndex);
+            unshow(imageContent);
+            unshow(textContent);
 
-    })
+        })
+    }
 
-    images.addEventListener('click', function() {
-        console.log('images');
+    if (images) {
 
-        show(secondaryTabs);
-        removeIndex(defaultIndex);
-        unshow(indexTimeline);
-        unshow(videoContent);
-        unshow(textContent);
-        show(imageContent);
+        images.addEventListener('click', function() {
+            console.log('images');
 
-    })
+            show(secondaryTabs);
+            removeIndex(defaultIndex);
+            unshow(indexTimeline);
+            unshow(videoContent);
+            unshow(textContent);
+            show(imageContent);
 
-    texts.addEventListener('click', function() {
-        console.log('texts');
+        })
+    }
 
-        show(secondaryTabs);
-        removeIndex(defaultIndex);
-        unshow(indexTimeline);
-        unshow(videoContent);
-        unshow(imageContent);
-        show(textContent);
-    })
+    if (texts) {
 
-    all.addEventListener('click', function() {
-        console.log('all');
 
-        unshow(secondaryTabs);
-        unshow(videoContent);
-        unshow(imageContent);
-        unshow(textContent);
-        show(indexTimeline);
-        addIndex(defaultIndex);
+        texts.addEventListener('click', function() {
+            console.log('texts');
 
-    })
+            show(secondaryTabs);
+            removeIndex(defaultIndex);
+            unshow(indexTimeline);
+            unshow(videoContent);
+            unshow(imageContent);
+            show(textContent);
+        })
+    }
+
+    if (all) {
+
+        all.addEventListener('click', function() {
+            console.log('all');
+
+            unshow(secondaryTabs);
+            unshow(videoContent);
+            unshow(imageContent);
+            unshow(textContent);
+            show(indexTimeline);
+            addIndex(defaultIndex);
+
+        })
+    }
 }
 
 export { sortingOut };

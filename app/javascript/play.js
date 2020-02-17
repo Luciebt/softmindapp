@@ -3,6 +3,8 @@ function setup() {
     const firstMoment = document.querySelector(".play-moments-media");
     let ids = [];
 
+    console.log(firstMoment);
+
     if (firstMoment) {
 
         firstMoment.classList.remove('unshow');
