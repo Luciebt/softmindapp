@@ -1,5 +1,5 @@
 class Friend < ApplicationRecord
-  after_save :send_friend_email
+  # after_save :send_friend_email
   acts_as_token_authenticatable
   belongs_to :user
 

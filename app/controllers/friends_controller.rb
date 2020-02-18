@@ -31,7 +31,7 @@ class FriendsController < ApplicationController
     @friend.user_id = current_user.id
 
     if @friend.save
-      redirect_to friends_path(@friend)
+      redirect_to friends_path
 
     else
       render :new
