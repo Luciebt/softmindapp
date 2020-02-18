@@ -27,17 +27,6 @@
                 <br>
             </div>
             <% @videos.each do |video| %>
-            <%
-=begin%>
- <% first_video = @videos[0] %>
-                <% if  first_video.created_at.strftime('%B %Y') != video.created_at.strftime('%B %Y') %>
-                    <div class="timeline-dates">
-                        <p><%= video.created_at.strftime('%B %Y') %></p>
-                        <br>
-                    </div>
-                <% end %>
-<%
-=end%>
                 <div class="card-product">
                     <%= video_tag(video.media.url, controls: true, preload: 'true', :class => "tab-media") %>
                 </div>
