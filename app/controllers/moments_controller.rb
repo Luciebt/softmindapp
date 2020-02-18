@@ -1,6 +1,7 @@
 class MomentsController < ApplicationController
+   skip_before_action :authenticate_user!, only: [:new, :create]
 
-  def index
+   def index
     if params[:query].present?
 
       if @friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
