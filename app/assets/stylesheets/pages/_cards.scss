@@ -37,6 +37,7 @@
         width: 18em;
         object-fit: cover;
     }
+
     .card-product-infos {
         align-items: flex-end;
         font-size: 18px;
@@ -46,7 +47,7 @@
 }
 
 
-.login-page {
+.login-page, .profile-edit-container {
     padding: 2em;
 }
 
