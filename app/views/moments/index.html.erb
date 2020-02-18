@@ -22,38 +22,47 @@
     </div>
     <div id="secondary-tabs" class="unshow">
         <div id="video-tab" class="unshow">
+            <div class="timeline-dates">
+                <h3>February 2020</h3>
+                <br>
+            </div>
             <% @videos.each do |video| %>
-            <% first_video = @videos[0] %>
+            <%
+=begin%>
+ <% first_video = @videos[0] %>
                 <% if  first_video.created_at.strftime('%B %Y') != video.created_at.strftime('%B %Y') %>
                     <div class="timeline-dates">
                         <p><%= video.created_at.strftime('%B %Y') %></p>
                         <br>
                     </div>
-                    <div class="moment-card">
-                        <%= video_tag(video.media.url, controls: true, preload: 'true', :class => "tab-media") %>
-                    </div>
-                <% else %>
-                <div class="moment-card">
+                <% end %>
+<%
+=end%>
+                <div class="card-product">
                     <%= video_tag(video.media.url, controls: true, preload: 'true', :class => "tab-media") %>
                 </div>
-                <% end %>
             <% end %>
         </div>
         <div id="image-tab" class="unshow">
+            <div class="timeline-dates">
+                <h3>February 2020</h3>
+                <br>
+            </div>
             <% @images.each do |image| %>
-                <div class="timeline-dates">
-                    <h3><%= image.created_at.strftime('%Y') %></h3>
-                    <br>
-                </div>
-                <div class="moment-card">
+                <div class="moment-card card-product-img-tab">
                     <%= link_to (cl_image_tag image.media, :class => "tab-media"), moment_carrousel_path(image) %>
                 </div>
             <% end %>
         </div>
         <div id="text-tab" class="unshow">
+        <div class="timeline-dates">
+            <h3>February 2020</h3>
+            <br>
+        </div>
             <% @texts.each do |text| %>
+            <%= text %>
             <div class="timeline-dates">
-                <h3><%= text.created_at.strftime('%B %Y') %></h3>
+                <h3>February 2020</h3>
                 <br>
             </div>
             <div class="card-category">
@@ -64,19 +73,33 @@
         <% end %>
         </div>
     </div>
+
     <div id="timeline-container-default">
+        <div class="timeline-dates">
+            <h3>February 2020</h3>
+            <br>
+        </div>
         <% @moments.each do |moment| %>
-            <% if moment.media_type == "video" %>
-                <div class="moment-card default-index">
-                    <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :transformation=>
-                    {crop: "fit"}, :class => "media") %>
-                </div>
-            <% else moment.media_type == "image" %>
-                <div class="moment-card default-index">
-                    <%= link_to (cl_image_tag moment.media, :transformation=>
-                    {crop: "fit"}, :class => "media"), moment_carrousel_path(moment) %>
-                </div>
+            <% first_moment_date = @moments[0].created_at.strftime('%B %Y') %>
+            <% if first_moment_date != moment.created_at.strftime('%B %Y') %>
+                <%= moment.created_at.strftime('%B %Y') %>
             <% end %>
+            <% if moment.media_type == "image" %>
+            <div class="card-product default-index">
+                <%= link_to (cl_image_tag moment.media, :transformation=>
+                {crop: "fit"}, :class => "media"), moment_carrousel_path(moment) %>
+                <div class="card-product-infos">
+                    <h2><%= moment.text_content %></h2>
+                </div>
+            <% else moment.media_type == "video" %>
+                <div class="card-product default-index">
+                        <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :transformation=>
+                        {crop: "fit"}, :class => "media") %>
+                    <div class="card-product-infos">
+                        <h2><%= moment.text_content %></h2>
+                    </div>
+                <% end %>
+                </div>
         <% end %>
         </div>
     </div>
