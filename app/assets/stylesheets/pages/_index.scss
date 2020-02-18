@@ -68,6 +68,11 @@
   overflow: hidden;
 }
 
+#text-tab {
+  flex-direction: column;
+  overflow: hidden;
+}
+
 #timeline-container-default {
   display: flex;
   flex-direction: column;

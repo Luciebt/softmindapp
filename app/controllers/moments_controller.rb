@@ -8,7 +8,7 @@ class MomentsController < ApplicationController
         @moments = Moment.where(friend_id: @friend.id)
         @videos = Moment.where(seen: true, friend_id: @friend.id, media_type: "video")
         @images = Moment.where(seen: true, friend_id: @friend.id, media_type: "image")
-        @texts = Moment.where(seen: true, friend_id: @friend.id, media: nil)
+        @texts = Moment.where(friend_id: @friend.id, media: nil)
 
       else
         redirect_to moments_path
@@ -19,7 +19,7 @@ class MomentsController < ApplicationController
       @moments = Moment.where(seen: true).order(created_at: :asc)
       @videos = Moment.where(seen: true, media_type: "video")
       @images = Moment.where(seen: true, media_type: "image")
-      @texts = Moment.where(seen: true, media: nil)
+      @texts = Moment.where(media: nil)
 
   end
 end
