@@ -2,6 +2,16 @@
     display: flex;
 }
 
+.carrousel-exit {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    color: white;
+    font-size: 28px;
+    margin-bottom: 1em;
+    margin-right: .8em;
+}
+
 .unshow-carrousel {
     display: none;
 }
