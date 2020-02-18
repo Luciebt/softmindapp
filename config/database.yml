@@ -77,9 +77,11 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
-  <<: *default
-  database: softmindapp_production
-  username: softmindapp
-  password: <%= ENV['SOFTMINDAPP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['HEROKU_POSTGRESQL_JADE_URL'] %>
+#
+# production:
+#   <<: *default
+#   database: softmindapp_production
+#   username: softmindapp
+#   password: <%= ENV['SOFTMINDAPP_DATABASE_PASSWORD'] %>
