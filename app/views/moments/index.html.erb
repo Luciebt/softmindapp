@@ -55,18 +55,14 @@
             <% end %>
         </div>
         <div id="text-tab" class="unshow">
-        <div class="timeline-dates">
-            <h3>February 2020</h3>
-            <br>
-        </div>
-            <% @texts.each do |text| %>
-            <%= text %>
             <div class="timeline-dates">
                 <h3>February 2020</h3>
                 <br>
             </div>
-            <div class="card-category">
-                <div class="moment-card">
+            <% @texts.each do |text| %>
+
+            <div class="card-product">
+                <div class="card-product-infos">
                     <p><%= text.text_content %></p>
                 </div>
             </div>
