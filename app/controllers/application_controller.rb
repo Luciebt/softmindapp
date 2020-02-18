@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def render_404
     raise ActionController::RoutingError.new('Not Found')
   end
+
+  def mailer_set_url_options
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
 end
