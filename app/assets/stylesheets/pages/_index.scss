@@ -4,6 +4,7 @@
 
 .index-container {
   padding: 1.4em;
+  height: 80vh;
 }
 
 #button-box {
@@ -49,34 +50,37 @@
 
 .timeline-dates {}
 
-.timeline-container {
+#secondary-tabs {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: stretch;
   flex-wrap: wrap;
 }
 
 #timeline-container-default {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .media {
-  max-width: 100px;
-  width: auto;
-  height: 100px;
-  margin: .6em;
+  width: 100px;
+  height: auto;
+  margin: .4em;
+}
+
+.tab-media {
+  width: 100px;
+  height: auto;
+  margin: .4em;
 }
 
 .moment-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: auto;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  align-self: end;
   font-family: 'Roboto', sans-serif;
 
   a {
@@ -96,11 +100,6 @@
   flex-wrap: wrap;
 }
 
-.moment-media {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-}
 
 .moment-text-card {
   display: flex;
