@@ -49,7 +49,7 @@
         </div>
         <div id="text-tab" class="unshow">
             <% @texts.each do |text| %>
-                <% first_text_date = @textes[0].created_at.strftime('%B %Y') %>
+                <% first_text_date = @texts[0].created_at.strftime('%B %Y') %>
                 <% if first_text_date != text.created_at.strftime('%B %Y') %>
                     <div class="timeline-dates">
                         <h3><%= text.created_at.strftime('%B %Y') %></h3>
@@ -65,10 +65,6 @@
     </div>
 
     <div id="timeline-container-default">
-        <div class="timeline-dates">
-            <h3>February 2020</h3>
-            <br>
-        </div>
         <% @moments.each do |moment| %>
             <% first_moment_date = @moments[0].created_at.strftime('%B %Y') %>
             <% if first_moment_date != moment.created_at.strftime('%B %Y') %>
