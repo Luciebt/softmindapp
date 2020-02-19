@@ -72,7 +72,7 @@ end
 
   def carrousel
     user = current_user
-    @moments = Moment.where(seen: true, user: user)
+    @moments = Moment.where(seen: true)
     @moment = Moment.find(params[:moment_id])
   end
 
