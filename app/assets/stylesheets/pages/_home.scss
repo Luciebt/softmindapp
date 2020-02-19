@@ -61,7 +61,7 @@ body {
   }
 
   button {
-    background-color: #4E67B7;
+    background-color: midnightblue;
     padding: .8em 2.2em;
     border-radius: 16px;
     cursor: pointer;
@@ -82,8 +82,8 @@ body {
 }
 
 .log-out-button {
-  background-color: #4E67B7;
-  padding: .6em 2em;
+  background-color: white;
+  padding: .4em .6em;
   border-radius: 16px;
   cursor: pointer;
   -webkit-border-radius: 16px;
@@ -93,7 +93,7 @@ body {
   border-color: transparent;
   justify-content: center;
   a {
-    color: white !important;
+    color: midnightblue !important;
   }
 
   &:active {

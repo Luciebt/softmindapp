@@ -5,11 +5,18 @@
     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
   </button>
 </div>
-<div class="users-name">
-  <h2>
-    <%= current_user.first_name.capitalize %>
-    <%= current_user.last_name.capitalize %>
-  </h2>
+
+<div class="profile-infos">
+  <div class="profile-avatar">
+    <%= image_tag  "avatars/koala.png", alt: 'nice avatar' %>
+  </div>
+
+  <div class="users-name">
+    <h2>
+      <%= current_user.first_name.capitalize %>
+      <%= current_user.last_name.capitalize %>
+    </h2>
+  </div>
 </div>
 
 <div id="profile-menu">

@@ -33,7 +33,10 @@
   }
 
   button:focus {
-    box-shadow: 0 0 22px rgba(251, 255, 0, 0.959);
+    box-shadow: 0 0 10px midnightblue;
+    background-color: midnightblue !important;
+    color: white;
+    opacity: 90%;
   }
 }
 
