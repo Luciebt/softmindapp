@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   end
 
   def play
-    @moments = Moment.where(seen: false).where.not(media: nil).sample(4)
+    @moments = Moment.where(seen: false).where.not(media: nil).sample(3)
   end
 end
