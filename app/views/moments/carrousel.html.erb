@@ -4,7 +4,8 @@
         <i class="carrousel-exit fas fa-times"></i>
     <% end %>
 
-    <%= @current_user %>
+    <%= @current_user.id %>
+    <%= @current_user.user_id %>
 
         <% @moments.each do |moment| %>
             <% if @moment == moment %>
