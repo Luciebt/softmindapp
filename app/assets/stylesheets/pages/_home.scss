@@ -54,10 +54,6 @@ body {
     color: white;
     font-size: 24px;
 
-    a:hover {
-      background-color: white !important;
-      color: #4E67B7 !important;
-    }
   }
 
   #white a {
@@ -77,5 +73,33 @@ body {
     justify-content: center;
     width: 70%;
     color: white;
+
+    &:active {
+      background-color: rgb(222, 244, 248) !important;
+      color: #4E67B7 !important;
+    }
+  }
+}
+
+.log-out-button {
+  background-color: #4E67B7;
+  padding: .6em 2em;
+  border-radius: 16px;
+  cursor: pointer;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  border-color: transparent;
+  justify-content: center;
+  a {
+    color: white !important;
+  }
+
+  &:active {
+    background-color: rgb(222, 244, 248) !important;
+    a {
+      color: #4E67B7 !important;
+    }
   }
 }
