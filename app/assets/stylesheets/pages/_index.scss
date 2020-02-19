@@ -22,7 +22,8 @@
   margin-top: .2em;
   font-family: 'Roboto', sans-serif;
 
-  a:hover, button:hover {
+  a:hover,
+  button:hover {
     color: black;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     outline-border: none;
@@ -31,7 +32,8 @@
     outline-style: transparent;
   }
 
-  a:focus {
+  button:focus {
+    box-shadow: 0 0 22px rgba(251, 255, 0, 0.959);
   }
 }
 
@@ -207,6 +209,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .here {
@@ -214,8 +217,8 @@
   border-right: 5px;
   margin-left: 14px;
   padding: none;
-  box-shadow:  38px 38px 71px #f5f5f5,
-             -38px -38px 71px #ffffff;
+  box-shadow: 38px 38px 71px #f5f5f5,
+    -38px -38px 71px #ffffff;
 }
 
 .btn-flat {
