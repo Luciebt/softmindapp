@@ -1,8 +1,11 @@
 body {
   background-image: url("https://i.ibb.co/wLGMFrB/Screen-Shot-2020-02-11-at-20-44-24.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-attachment: fixed;
+  position: sticky;
+  height: 100%;
+  width: auto;
 }
 
 
@@ -12,6 +15,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: auto;
 }
 
 .logo-placement {
