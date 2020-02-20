@@ -9,6 +9,16 @@
   margin-bottom: 10em;
 }
 
+.body-index {
+  background-image: url("https://i.ibb.co/fGPhMQw/moments-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  position: sticky;
+  height: 100vh;
+  width: auto;
+}
+
 .here {
   font-family: 'Roboto', sans-serif;
 }
@@ -121,7 +131,7 @@
 }
 
 .tab-media {
-  width: 18em;
+  width: 20em;
   height: auto;
   margin: .4em;
 }
