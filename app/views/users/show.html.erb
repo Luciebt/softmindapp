@@ -1,5 +1,6 @@
 <%= render 'shared/navbar' %>
 
+<div class="body-users">
 <div class="log-out">
   <button class="log-out-button">
     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -8,7 +9,7 @@
 
 <div class="profile-infos">
   <div class="profile-avatar">
-    <%= image_tag  "avatars/koala.png", alt: 'nice avatar' %>
+    <%= image_tag  "bunny_1.png", alt: 'nice avatar' %>
   </div>
 
   <div class="users-name">
@@ -25,4 +26,5 @@
     <li><%= link_to "Friends", friends_path %></li>
     <li><%= link_to "Become a PRO member", root_path %></li>
   </ul>
+</div>
 </div>

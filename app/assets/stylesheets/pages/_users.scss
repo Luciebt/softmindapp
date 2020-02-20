@@ -6,8 +6,18 @@
 
   h2 {
     text-align: center;
-    color: midnightblue;
+    color: white;
   }
+}
+
+.body-users {
+  background-image: url("https://i.ibb.co/mCyKcns/profile-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: sticky;
+  height: 100vh;
+  width: auto;
 }
 
 .profile-infos {
@@ -20,8 +30,11 @@
 .log-out {
   display: flex;
   justify-content: flex-end;
-  margin-right: 1em;
+}
+
+.log-out-button {
   margin-top: 1em;
+  margin-right: 1em;
 }
 
 .profile-avatar {
