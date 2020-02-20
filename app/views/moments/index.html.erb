@@ -74,15 +74,19 @@
             <% end %>
             <% if moment.media_type == "image" %>
             <div class="card-product default-index">
+                <div class="moment-div">
                 <%= link_to (cl_image_tag moment.media, :transformation=>
                 {crop: "fit"}, :class => "media"), moment_carrousel_path(moment) %>
+                </div>
                 <div class="card-product-infos">
                     <h2><%= moment.text_content %></h2>
                 </div>
             <% else moment.media_type == "video" %>
                 <div class="card-product default-index">
+                    <div class="moment-div">
                         <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :transformation=>
                         {crop: "fit"}, :class => "media") %>
+                    </div>
                     <div class="card-product-infos">
                         <h2><%= moment.text_content %></h2>
                     </div>
