@@ -10,7 +10,7 @@
 }
 
 .major-div {
-    background-image: url("https://i.ibb.co/mCyKcns/profile-background.png");
+  background-image: url("https://i.ibb.co/mCyKcns/profile-background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
@@ -29,13 +29,15 @@
   width: auto;
 }
 
-a, p, h2 {
+a,
+p,
+h2 {
   font-family: 'Roboto', sans-serif;
 }
 
 #friends-div {
   height: 60vh;
-  overflow-y:scroll;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
 }
@@ -45,6 +47,7 @@ a, p, h2 {
   justify-content: space-between;
   margin: 2vh 5vh;
   border-bottom: 0.3px solid #D3D7DB;
+
   img {
     height: 1.6em;
     cursor: pointer;
@@ -53,10 +56,32 @@ a, p, h2 {
 
 .add-new {
   text-align: right;
+
   a {
-    color: #6b6b6b;
+    color: midnightblue;
     margin-top: 15vh;
-    margin-right: 3vh;
+    margin-right: 2vh;
+  }
+
+  background-color: white;
+  margin-left: 65vw;
+  padding: .4em .4em;
+  border-radius: 16px;
+  cursor: pointer;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  border-color: transparent;
+  justify-content: center;
+
+  a {
+    color: midnightblue !important;
+  }
+
+  &:active {
+    background-color: rgb(222, 244, 248) !important;
+
   }
 }
 
@@ -73,12 +98,15 @@ a, p, h2 {
   display: flex;
   justify-content: space-between;
   margin: -1vh 1vh 1vh 1vh;
-  a, button {
+
+  a,
+  button {
     background-color: transparent;
     border: 0px;
     font-size: 4.4vh;
     color: black;
   }
+
   img {
     height: 1em;
   }
@@ -98,7 +126,7 @@ a, p, h2 {
   width: 100%;
 }
 
-.adding-form{
+.adding-form {
   display: flex;
   justify-content: center;
 }
