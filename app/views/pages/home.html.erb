@@ -3,12 +3,10 @@
 <div class="home-container">
   <div class="logo-placement">
     <h1>softmind</h1>
-  <div>
+  </div>
 
   <% if @unseens %>
-    <div class="new-content">
-      <%= video_tag("Butterfly_softmind.mp4", type: 'video/mp4', autoplay: 'autoplay', loop: 'true', preload: 'auto', muted: 'true', class: 'animation') %>
-    </div>
+    <%= cl_video_tag("Butterfly_softmind_shzzvz.mp4", autoplay: 'autoplay', loop: 'true', preload: 'auto', muted: 'true', class: 'animation') %>
   <% end %>
     <div class="play-button">
         <button class="" id="white">
