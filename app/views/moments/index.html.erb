@@ -68,7 +68,9 @@
         <% @moments.each do |moment| %>
             <% first_moment_date = @moments[0].created_at.strftime('%B %Y') %>
             <% if first_moment_date != moment.created_at.strftime('%B %Y') %>
-                <%= moment.created_at.strftime('%B %Y') %>
+                <div class="timeline-dates">
+                    <h3><%= moment.created_at.strftime('%B %Y') %></h3>
+                </div>
             <% end %>
             <% if moment.media_type == "image" %>
             <div class="card-product default-index">
