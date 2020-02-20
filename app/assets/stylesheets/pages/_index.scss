@@ -2,19 +2,11 @@
 @import "home";
 @import "cards";
 
-.body-index {
-  background-image: url("https://i.ibb.co/fGPhMQw/moments-background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  position: sticky;
-  height: 100vh;
-  width: auto;
-}
-
 .index-container {
   padding: 1.4em;
-  height: 80vh;
+  height: 100vh;
+  width: auto;
+  margin-bottom: 10em;
 }
 
 .here {
@@ -43,10 +35,10 @@
   }
 
   button:focus {
-    box-shadow: 0 0 10px midnightblue;
+    box-shadow: 0 0 10px palevioletred;
     background-color: midnightblue !important;
     color: white;
-    opacity: 90%;
+    opacity: 80%;
   }
 }
 
@@ -76,7 +68,6 @@
 
 }
 
-
 .timeline-title {
   h1 {
     font-size: 22px;
@@ -86,11 +77,10 @@
 }
 
 .timeline-dates {
-  margin-left: 1.2em;
-  margin-top: .4em;
   margin: 1em;
   display: flex;
   justify-content: flex-start !important;
+
   h3 {
     font-size: 18px;
   }
@@ -100,6 +90,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-bottom: 10em;
 }
 
 #video-tab {
@@ -120,11 +111,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-wrap: wrap;
+  margin-bottom: 10em;
 }
 
 .media {
-  width: 100px;
+  width: 150px;
   height: auto;
   margin: .4em;
 }
