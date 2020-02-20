@@ -1,5 +1,6 @@
 <%= render 'shared/navbar' %>
 
+<div class="body-friends">
 <div class="add-new">
   <%= link_to  "+ Add Friend", new_friend_path %>
 </div>
@@ -10,4 +11,5 @@
       <%= render "friend_index", friend: friend %>
     <% end %>
   </div>
+</div>
 </div>

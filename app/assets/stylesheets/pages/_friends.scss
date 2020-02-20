@@ -9,6 +9,16 @@
   padding-bottom: 20px;
 }
 
+.body-friends {
+  background-image: url("https://i.ibb.co/mCyKcns/profile-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  position: sticky;
+  height: 100vh;
+  width: auto;
+}
+
 a, p, h2 {
   font-family: 'Roboto', sans-serif;
 }
@@ -33,10 +43,10 @@ a, p, h2 {
 
 .add-new {
   text-align: right;
-  margin-top: 15vh;
-  margin-right: 3vh;
   a {
     color: #6b6b6b;
+    margin-top: 15vh;
+    margin-right: 3vh;
   }
 }
 
