@@ -1,11 +1,7 @@
 <div id="play-container">
-
     <%= link_to moments_path do %>
         <i class="carrousel-exit fas fa-times"></i>
     <% end %>
-
-    <%= @current_user.id %>
-
         <% @moments.each do |moment| %>
             <% if @moment == moment %>
                 <% @show_class = 'show-carrousel' %>
