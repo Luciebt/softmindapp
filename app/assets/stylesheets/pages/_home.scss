@@ -73,8 +73,10 @@
     color: white;
 
     &:active {
-      background-color: rgb(222, 244, 248) !important;
-      color: #4E67B7 !important;
+      background-color: rgb(182, 243, 253) !important;
+    }
+    a:active {
+      color: midnightblue !important;
     }
   }
 }
