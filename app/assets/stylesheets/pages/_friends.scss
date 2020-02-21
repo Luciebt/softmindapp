@@ -1,12 +1,23 @@
 .main-div {
   background-color: white;
+  opacity: .9;
   position: fixed;
   bottom: 87px;
   width: 100vw;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
+}
+
+.bg-div {
+  background-image: url("https://i.ibb.co/mCyKcns/profile-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  position: sticky;
+  height: 100vh;
+  width: auto;
 }
 
 .major-div {
@@ -95,7 +106,7 @@ h2 {
 .submit-cancel-buttons {
   display: flex;
   justify-content: space-between;
-  margin: -1vh 1vh 1vh 1vh;
+  margin: 1vh 1vh 1vh 1vh;
 
   a,
   button {
