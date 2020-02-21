@@ -1,5 +1,6 @@
 class Moment < ApplicationRecord
-
+  attr_accessor :media
+  attr_accessor :seen
 
   mount_uploader :media, PhotoUploader
   belongs_to :user

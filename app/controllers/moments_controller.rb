@@ -5,17 +5,13 @@ class MomentsController < ApplicationController
     if params[:query].present?
 
       if @friend = Friend.find_by("name ILIKE ?", "%#{params[:query]}%")
-
         @moments = Moment.where(friend_id: @friend.id)
         @videos = Moment.where(seen: true, friend_id: @friend.id, media_type: "video")
         @images = Moment.where(seen: true, friend_id: @friend.id, media_type: "image")
         @texts = Moment.where(friend_id: @friend.id, media: nil)
-
       else
         redirect_to moments_path
       end
-    # elsif params[:filter_by].present?
-    #   @moments = Moment.where(friend_id: params[:filter_by])
     else
       @moments = Moment.where(seen: true).order(created_at: :asc)
       @videos = Moment.where(seen: true, media_type: "video")
@@ -38,7 +34,6 @@ end
       # redirect to? Custom page after drag and drop
       redirect_to moment_success_path(friend_id: moments_params[:friend_id])
     else
-      # reload the page? Error message?
       render :new
     end
   end
