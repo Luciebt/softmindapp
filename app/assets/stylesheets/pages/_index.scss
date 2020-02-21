@@ -11,12 +11,10 @@
 
 .body-index {
   background-image: url("https://i.ibb.co/fGPhMQw/moments-background.png");
-  background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: scroll;
-  position: sticky;
   height: 100vh;
   width: auto;
+  overflow: scroll;
 }
 
 .here {
