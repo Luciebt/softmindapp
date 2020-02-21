@@ -1,5 +1,14 @@
 #play-container {
-    background-color: black;
+    // background-color: black;
+    background-image: url(https://i.ibb.co/fGPhMQw/moments-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    position: -webkit-sticky;
+    position: sticky;
+    height: 100vh;
+    width: auto;
+
     margin: 0 auto;
     position: relative;
     height: 100vh;
@@ -14,11 +23,7 @@
     }
 }
 
-.play-bg-gradient {
-    background-image:
-        linear-gradient(to top right,
-            #170707, black);
-}
+.play-bg-gradient {}
 
 .play-exit-icon {
     display: flex;
@@ -65,7 +70,27 @@
 .text-box {
     text-align: center;
     margin: 2em;
-    color: white;
+    color: black;
+
+    overflow: hidden;
+    opacity: .9;
+    padding: 1em;
+    padding-top: 2.2em;
+    background: white;
+    opacity: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    p {
+        font-size: 18px;
+    }
 }
 
 .backgroundimage {
