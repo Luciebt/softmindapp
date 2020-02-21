@@ -55,16 +55,14 @@ h2 {
 }
 
 .add-new {
-  text-align: right;
+  text-align: center;
+  margin: -15px 119px;
 
   a {
     color: midnightblue;
-    margin-top: 15vh;
-    margin-right: 2vh;
   }
 
   background-color: white;
-  margin-left: 65vw;
   padding: .4em .4em;
   border-radius: 16px;
   cursor: pointer;
