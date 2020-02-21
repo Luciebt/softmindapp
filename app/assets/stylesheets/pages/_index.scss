@@ -205,6 +205,7 @@
 
 .simple-form {
   display: flex;
+  opacity: .9;
   align-items: center;
   justify-content: space-between;
   background: white;
@@ -228,7 +229,8 @@
 }
 
 .search {
-  margin-top: 5px;
+  margin-top: .6em;
+  margin-bottom: .6em;
   display: flex;
   justify-content: center;
   align-items: center;
