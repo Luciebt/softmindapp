@@ -3,13 +3,12 @@ function setup() {
     const firstMoment = document.querySelector(".play-moments-media");
     let ids = [];
 
-    console.log(firstMoment);
-
     if (firstMoment) {
 
         firstMoment.classList.remove('unshow');
         firstMoment.classList.add('show');
         ids.push(firstMoment.dataset.id);
+        console.log(ids);
 
         const moveShow = (event) => {
             const currentMoment = event.currentTarget;
@@ -60,10 +59,12 @@ function setup() {
 
 function updateStatus(ids) {
 
-    const button2 = document.querySelector(".play-exit-icon");
+    const button2 = document.getElementById("seen-exit");
 
     if (button2)  {
+
             button2.addEventListener('click', event => {
+                console.log(event);
                 event.preventDefault()
                 const hiddenTag = document.querySelector('.input-seen')
                 if (hiddenTag) {

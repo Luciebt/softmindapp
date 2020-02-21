@@ -2,7 +2,7 @@
 
     <%= form_for( 'moments_seen', remote: true, method: 'put', url: seen_path, html: {class: "form-seen"}, authenticity_token: true) do |f| %>
         <input type="hidden" name="moment_ids" value="" class="input-seen">
-        <i class="play-exit-icon fas fa-times"></i>
+        <i class="play-exit-icon fas fa-times" id="seen-exit"></i>
     <% end %>
 
     <% @moments.each do |moment| %>
