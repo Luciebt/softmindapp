@@ -60,6 +60,8 @@ function setup() {
 function updateStatus(ids) {
 
     const button2 = document.getElementById("seen-exit");
+    console.log(button2);
+
 
     if (button2)  {
 
