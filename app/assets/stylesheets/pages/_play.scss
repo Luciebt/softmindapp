@@ -1,6 +1,6 @@
 #play-container {
     // background-color: black;
-    background-image: url(https://i.ibb.co/fGPhMQw/moments-background.png);
+    background-image: url(https://i.ibb.co/0JmNWD7/blurred-background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;
@@ -71,7 +71,6 @@
     text-align: center;
     margin: 2em;
     color: black;
-
     overflow: hidden;
     opacity: .9;
     padding: 1em;
@@ -86,8 +85,12 @@
     flex-direction: column;
     -webkit-box-align: center;
     align-items: center;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+
     p {
         font-size: 18px;
     }
