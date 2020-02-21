@@ -47,6 +47,7 @@
 
 #profile-menu {
   background-color: white;
+  opacity: .9;
   position: fixed;
   bottom: 85px;
   width: 100vw;
@@ -69,8 +70,7 @@ ul li {
 
 li {
   border-bottom: 0.3px solid #D3D7DB;
-
-  width: 284px;
+  width: 80vw;
 }
 
 a:link {

@@ -45,7 +45,7 @@
   }
 
   button:focus {
-    box-shadow: 0 0 10px palevioletred;
+    box-shadow: 0 0 10px rgb(182, 243, 253);
     background-color: midnightblue !important;
     color: white;
     opacity: 80%;
@@ -83,6 +83,9 @@
     font-size: 22px;
     text-align: center;
     font-weight: bold;
+  }
+  i {
+    font-size: 18px;
   }
 }
 
@@ -202,6 +205,7 @@
 
 .simple-form {
   display: flex;
+  opacity: .9;
   align-items: center;
   justify-content: space-between;
   background: white;
@@ -225,7 +229,8 @@
 }
 
 .search {
-  margin-top: 5px;
+  margin-top: .6em;
+  margin-bottom: .6em;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,20 +1,22 @@
-<div class="main-div">
-  <%= simple_form_for (@friend) do |f| %>
-    <%= f.error_notification %>
-    <div class="friend-form">
-      <div class="inputs-div">
-        <%= f.input :name, :label => false, :placeholder => "Name" %>
-        <%= f.input :email, :label => false, :placeholder => "Email", input_html: { autocomplete: 'email' } %>
+<div class="bg-div">
+  <div class="main-div">
+    <%= simple_form_for (@friend) do |f| %>
+      <%= f.error_notification %>
+      <div class="friend-form">
+        <div class="inputs-div">
+          <%= f.input :name, :label => false, :placeholder => "Name" %>
+          <%= f.input :email, :label => false, :placeholder => "Email", input_html: { autocomplete: 'email' } %>
+        </div>
+    <%#= f.input :avatar, as: :file, input_html: { accept: User::AVATAR } %>
+        <div class="submit-cancel-buttons adding-form">
+          <%= button_tag type: 'submit' do %>
+            <%= image_tag "accept.png" %>
+          <% end %>
+          <%= link_to friends_path do %>
+            <%= image_tag "close.png" %>
+          <% end %>
+        </div>
       </div>
-  <%#= f.input :avatar, as: :file, input_html: { accept: User::AVATAR } %>
-      <div class="submit-cancel-buttons adding-form">
-        <%= button_tag type: 'submit' do %>
-          <%= image_tag "accept.png" %>
-        <% end %>
-        <%= link_to friends_path do %>
-          <%= image_tag "close.png" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
