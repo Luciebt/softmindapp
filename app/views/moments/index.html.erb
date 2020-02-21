@@ -81,12 +81,6 @@
                         <h2><%= moment.text_content %></h2>
                     </div>
                 </div>
-            <% elsif @texts.include?(moment) %>
-                <div class="card-product">
-                    <div class="card-product-infos">
-                        <p><%= text.text_content %></p>
-                    </div>
-                </div>
             <% else moment.media_type == "video" %>
                 <div class="card-product default-index">
                     <%= video_tag("#{moment.media.url}", controls: true, preload: 'true', :transformation=>
