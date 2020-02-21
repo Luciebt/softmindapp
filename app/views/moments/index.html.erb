@@ -24,12 +24,6 @@
     <div id="secondary-tabs" class="unshow">
         <div id="video-tab" class="unshow">
             <% @videos.each do |video| %>
-                <% first_video_date = @videos[0].created_at.strftime('%B %Y') %>
-                <% if first_video_date != video.created_at.strftime('%B %Y') %>
-                    <div class="timeline-dates">
-                        <h3><%= video.created_at.strftime('%B %Y') %></h3>
-                    </div>
-                <% end %>
                 <div class="card-product">
                     <%= video_tag(video.media.url, controls: true, preload: 'true', :class => "tab-media") %>
                 </div>
@@ -37,12 +31,6 @@
         </div>
         <div id="image-tab" class="unshow">
             <% @images.each do |image| %>
-                <% first_image_date = @images[0].created_at.strftime('%B %Y') %>
-                <% if first_image_date != image.created_at.strftime('%B %Y') %>
-                    <div class="timeline-dates">
-                        <h3><%= image.created_at.strftime('%B %Y') %></h3>
-                    </div>
-                <% end %>
                 <div class="moment-card card-product-img-tab">
                     <%= link_to (cl_image_tag image.media, :class => "tab-media"), moment_carrousel_path(image) %>
                 </div>
@@ -50,12 +38,6 @@
         </div>
         <div id="text-tab" class="unshow">
             <% @texts.each do |text| %>
-                <% first_text_date = @texts[0].created_at.strftime('%B %Y') %>
-                <% if first_text_date != text.created_at.strftime('%B %Y') %>
-                    <div class="timeline-dates">
-                        <h3><%= text.created_at.strftime('%B %Y') %></h3>
-                    </div>
-                <% end %>
             <div class="card-product">
                 <div class="card-product-infos">
                     <p><%= text.text_content %></p>
@@ -67,12 +49,6 @@
 
     <div id="timeline-container-default">
         <% @moments.each do |moment| %>
-            <% first_moment_date = @moments[0].created_at.strftime('%B %Y') %>
-            <% if first_moment_date != moment.created_at.strftime('%B %Y') %>
-                <div class="timeline-dates">
-                    <h3><%= moment.created_at.strftime('%B %Y') %></h3>
-                </div>
-            <% end %>
             <% if moment.media_type == "image" %>
                 <div class="card-product default-index">
                     <%= link_to (cl_image_tag moment.media, :transformation=>
